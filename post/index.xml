@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Oct 2018 15:41:13 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 09 Oct 2018 19:45:24 -0700</lastBuildDate>
     
 	<atom:link href="https://polothy.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>&lt;3 Makefile</title>
+      <link>https://polothy.github.io/post/2018-10-09-heart-makefile/</link>
+      <pubDate>Tue, 09 Oct 2018 19:45:24 -0700</pubDate>
+      
+      <guid>https://polothy.github.io/post/2018-10-09-heart-makefile/</guid>
+      <description>&lt;p&gt;The secret is out, I really like a good &lt;code&gt;Makefile&lt;/code&gt;!&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Hello Blog</title>
