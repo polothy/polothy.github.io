@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Makefile on Blog</title>
+    <link>https://polothy.github.io/tags/makefile/</link>
+    <description>Recent content in Makefile on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 09 Oct 2018 21:15:27 -0700</lastBuildDate>
+    
+	<atom:link href="https://polothy.github.io/tags/makefile/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Makefile for your dotfiles</title>
+      <link>https://polothy.github.io/post/2018-10-09-makefile-dotfiles/</link>
+      <pubDate>Tue, 09 Oct 2018 21:15:27 -0700</pubDate>
+      
+      <guid>https://polothy.github.io/post/2018-10-09-makefile-dotfiles/</guid>
+      <description>&lt;p&gt;Using a &lt;code&gt;Makefile&lt;/code&gt; for your &lt;code&gt;dotfiles&lt;/code&gt; can help simplify your dot file life!&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>&lt;3 Makefile</title>
+      <link>https://polothy.github.io/post/2018-10-09-heart-makefile/</link>
+      <pubDate>Tue, 09 Oct 2018 19:45:24 -0700</pubDate>
+      
+      <guid>https://polothy.github.io/post/2018-10-09-heart-makefile/</guid>
+      <description>&lt;p&gt;The secret is out, I really like a good &lt;code&gt;Makefile&lt;/code&gt;!&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
