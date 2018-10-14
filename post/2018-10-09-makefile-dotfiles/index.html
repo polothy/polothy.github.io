@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Makefile for your dotfiles</title>
+  <meta property="og:title" content="Makefile for your dotfiles" />
+  <meta name="twitter:title" content="Makefile for your dotfiles" />
+  <meta name="description" content="Using a Makefile for your dotfiles can help simplify your dot file life!
+
+">
+  <meta property="og:description" content="Using a Makefile for your dotfiles can help simplify your dot file life!
+
+">
+  <meta name="twitter:description" content="Using a Makefile for your dotfiles can help simplify your dot file life!
+
+">
+  <meta name="author" content="Mark Nielsen"/>
+  <meta property="og:image" content="https://polothy.github.io/img/gopher-spirit-coffee.png" />
+  <meta name="twitter:image" content="https://polothy.github.io/img/gopher-spirit-coffee.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@polothy" />
+  <meta name="twitter:creator" content="@polothy" />
+  <meta property="og:url" content="https://polothy.github.io/post/2018-10-09-makefile-dotfiles/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Blog" />
+
+  <meta name="generator" content="Hugo 0.49" />
+  <link rel="canonical" href="https://polothy.github.io/post/2018-10-09-makefile-dotfiles/" />
+  <link rel="alternate" href="https://polothy.github.io/index.xml" type="application/rss+xml" title="Blog">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://polothy.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" /><link rel="stylesheet" href="https://polothy.github.io/css/syntax.css" /><link rel="stylesheet" href="https://polothy.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://polothy.github.io/">Blog</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Blog" href="https://polothy.github.io/">
+            <img class="avatar-img" src="https://polothy.github.io/img/gopher-spirit-coffee.png" alt="Blog" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Makefile for your dotfiles</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fa fa-calendar-o"></i>&nbsp;Posted on October 9, 2018
+  
+  
+  &nbsp;|&nbsp;
+  <i class="fa fa-clock-o"></i> 5 minutes (1053 words)
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>Using a <code>Makefile</code> for your <code>dotfiles</code> can help simplify your dot file life!</p>
+
+<p></p>
+
+<p>I was originally inspired by this <a href="https://github.com/driesvints/dotfiles">dotfiles</a>
+project.  Using <code>Brewfile</code> and <code>mackup</code> to do most of the heavy lifting.  I
+really liked it, but then I ran into some problems:</p>
+
+<ul>
+<li><code>Brewfile</code> is sort of an all or nothing type system.  It&rsquo;s really only handy
+if you are on a fresh, blank computer.  That doesn&rsquo;t actually happen for me
+that often.  For example, if I upgrade macOS, I need to re-install my ports and
+and <code>Brewfile</code> is not practical for this because it includes things like <code>casks</code>
+and such.</li>
+<li>For some reason, I was always a little paranoid about <code>mackup</code> usage.  Mostly
+it was due to how infrequently I actually used it, so I would forget how it works
+and what commands I should use.  Plus for <em>my particular setup</em>, I ended
+up with some rather odd symlinking that would confuse the heck out of me if I had
+forgotten how it worked.</li>
+</ul>
+
+<p>While <code>Brewfile</code> and <code>mackup</code> are great tools, they were not adding a lot of value
+for <em>me</em> and I realized that what they were doing was really simple and I could
+migrate to a simple <code>Makefile</code>.</p>
+
+<h2 id="replacing-mackup">Replacing mackup</h2>
+
+<p>Replacing <code>makup</code> was easy for me because I was only using it for dot files that
+were <em>only</em> located in my <code>$HOME</code> directory.  So, the goal is to create a symbolic
+link between the files in my <code>dotfiles</code> to my <code>$HOME</code> directory.</p>
+
+<p>Before reading the <code>Makefile</code> below, know this:</p>
+
+<ul>
+<li>The <code>Makefile</code> is located in <code>dotfiles/Makefile</code>, so commands run are relative to it.</li>
+<li>The dot files to link to <code>$HOME</code> directory are all located in <code>dotfiles/home</code> directory.</li>
+<li><a href="https://www.gnu.org/software/make/manual/make.html#Prerequisite-Types">Read this</a>
+regarding the pipe in the target dependencies.</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-makefile" data-lang="makefile"><span class="nv">HOMEFILES</span> <span class="o">:=</span> <span class="k">$(</span>shell ls -A home<span class="k">)</span>
+<span class="nv">DOTFILES</span> <span class="o">:=</span> <span class="k">$(</span>addprefix <span class="k">$(</span>HOME<span class="k">)</span>/,<span class="k">$(</span>HOMEFILES<span class="k">))</span>
+
+<span class="nf">.PHONEY</span><span class="o">:</span> <span class="n">link</span> <span class="n">unlink</span>
+
+<span class="nf">link</span><span class="o">:</span> <span class="p">|</span> <span class="k">$(</span><span class="nv">DOTFILES</span><span class="k">)</span>
+
+<span class="c"># This will link all of our dot files into our home directory.  The
+</span><span class="c"># magic happening in the first arg to ln is just grabbing the file name
+</span><span class="c"># and appending the path to dotfiles/home
+</span><span class="c"></span><span class="nf">$(DOTFILES)</span><span class="o">:</span>
+	@ln -sv <span class="s2">&#34;</span><span class="k">$(</span>PWD<span class="k">)</span><span class="s2">/home/</span><span class="k">$(</span>notdir <span class="nv">$@</span><span class="k">)</span><span class="s2">&#34;</span> <span class="nv">$@</span>
+
+<span class="c"># Interactively delete symbolic links.
+</span><span class="c"></span><span class="nf">unlink</span><span class="o">:</span>
+	@echo <span class="s2">&#34;Unlinking dotfiles&#34;</span>
+	@for f in <span class="k">$(</span>DOTFILES<span class="k">)</span><span class="p">;</span> <span class="k">do</span> <span class="k">if</span> <span class="o">[</span> -h <span class="nv">$$</span>f <span class="o">]</span><span class="p">;</span> <span class="k">then</span> rm -i <span class="nv">$$</span>f<span class="p">;</span> <span class="k">fi</span> <span class="p">;</span> <span class="k">done</span>
+</code></pre></div>
+<p><em>What&rsquo;s happening?</em></p>
+
+<ul>
+<li>First, create the <code>HOMEFILES</code> varible which is a list of our files in the
+<code>dotfiles/home</code> directory.  A list in <code>make</code> is just space separated list,
+EG: <code>foo bar baz</code> is a list of three items.</li>
+<li><code>DOTFILES</code> variable is used to create a list of files that we want to create in
+our <code>$HOME</code> directory.  This is done by prepending <code>$HOME/</code> to each
+item in the <code>HOMEFILES</code> list.  So, if you have <code>dotfiles/home/.zsh</code> you
+will get <code>$HOME/.zsh</code>.</li>
+<li>The <code>link</code> target is there to trigger the creation of any <em>missing</em> dot files
+from your <code>$HOME</code> directory.  If you didn&rsquo;t have this target, then you would
+have to do <code>make $HOME/.zsh</code> for each file, no fun.</li>
+<li><code>$(DOTFILES)</code> target defines the actual creation of the dot file in your
+<code>$HOME</code> directory.  What is nice is that this will not overwrite any
+existing files in your <code>$HOME</code> because that&rsquo;s how <code>make</code> works.  It wont
+run the target if the file already exists.  And of course, what it does
+is make a link, EG: <code>ln -sv dotfiles/home/.zsh $HOME/.zsh</code></li>
+<li>The <code>unlink</code> target iterates over your dot files in your <code>$HOME</code> directory
+and <em>interactively</em> deletes your dot files <em>only if</em> that file is a symbolic link.</li>
+</ul>
+
+<p>So, perhaps I got a little verbose in my explination, but it ends up creating
+a pretty simple <code>Makefile</code> and the result is very safe.  You can re-run <code>make link</code>
+as you add new files to <code>dotfiles/home</code>.  You can run <code>make unlink</code> anytime and
+it asks you for confirmation before unlinking anything.  And on top of that,
+it&rsquo;s all non-destructive: if you have a <em>real</em> file in your <code>$HOME</code> directory,
+it will not overwritten or deleted.</p>
+
+<h2 id="replacing-brewfile">Replacing Brewfile</h2>
+
+<p>Replacing <code>Brewfile</code> is a little more involved, but ends up working quite well.</p>
+<div class="highlight"><pre class="chroma"><code class="language-makefile" data-lang="makefile"><span class="nv">BREW</span> <span class="o">:=</span> /usr/local/bin/brew
+<span class="nv">PACKAGE</span> <span class="o">=</span> brew list --versions <span class="k">$(</span><span class="m">1</span><span class="k">)</span> &gt; /dev/null <span class="o">||</span> brew install <span class="k">$(</span><span class="m">1</span><span class="k">)$(</span><span class="m">2</span><span class="k">)</span>
+<span class="nv">CASK</span> <span class="o">=</span> brew cask list <span class="k">$(</span><span class="m">1</span><span class="k">)</span> &gt; /dev/null <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="o">||</span> brew cask install <span class="k">$(</span><span class="m">1</span><span class="k">)</span>
+
+<span class="nf">.PHONEY</span><span class="o">:</span> <span class="n">link</span> <span class="n">install</span> <span class="n">brew</span> <span class="n">taps</span> <span class="n">packages</span> <span class="n">casks</span> <span class="n">mas</span> <span class="n">list</span> <span class="n">unlink</span> <span class="n">clean</span> <span class="n">uninstall_brew</span> <span class="n">uninstall_packages</span>
+
+<span class="nf">install</span><span class="o">:</span> <span class="p">|</span> <span class="n">taps</span> <span class="n">packages</span> <span class="n">casks</span> <span class="n">mas</span> <span class="n">link</span> <span class="n">clean</span>
+
+<span class="nf">brew</span><span class="o">:</span> <span class="p">|</span> <span class="k">$(</span><span class="nv">BREW</span><span class="k">)</span>
+	brew update
+
+<span class="nf">$(BREW)</span><span class="o">:</span>
+	@ruby -e <span class="s2">&#34;</span><span class="nv">$$</span><span class="s2">(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&#34;</span>
+
+<span class="nf">taps</span><span class="o">:</span> <span class="p">|</span> <span class="n">brew</span>
+	brew tap homebrew/cask
+	<span class="c1"># and many more...
+</span><span class="c1"></span>
+<span class="nf">packages</span><span class="o">:</span> <span class="p">|</span> <span class="n">brew</span>
+	<span class="k">$(</span>call PACKAGE,go<span class="k">)</span>
+	<span class="c1"># and many more...
+</span><span class="c1"></span>
+<span class="nf">casks</span><span class="o">:</span> <span class="p">|</span> <span class="n">brew</span>
+	<span class="k">$(</span>call CASK,alfred<span class="k">)</span>
+	<span class="c1"># and many more...
+</span><span class="c1"></span>
+<span class="nf">mas</span><span class="o">:</span>
+	mas install <span class="m">587512244</span> <span class="c1"># Kaleidoscope
+</span><span class="c1"></span>	<span class="c1"># and many more...
+</span><span class="c1"></span>
+<span class="c"># Use to update install lists.
+</span><span class="c"></span><span class="nf">list</span><span class="o">:</span>
+	brew tap
+	@echo <span class="s2">&#34;\n&#34;</span>
+	brew leaves --full-name
+	@echo <span class="s2">&#34;\n&#34;</span>
+	brew cask list --full-name
+	@echo <span class="s2">&#34;\n&#34;</span>
+	mas list
+
+<span class="nf">clean</span><span class="o">:</span>
+	brew cleanup
+	brew cask cleanup
+
+<span class="c"># Use with caution, can really mess with Cask (thinks nothing is installed).
+</span><span class="c"></span><span class="nf">uninstall_brew</span><span class="o">:</span>
+	@ruby -e <span class="s2">&#34;</span><span class="nv">$$</span><span class="s2">(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)&#34;</span>
+
+<span class="nf">uninstall_packages</span><span class="o">:</span>
+	brew remove --force --ignore-dependencies <span class="k">$(</span>shell brew list<span class="k">)</span>
+</code></pre></div>
+<p>Still with me? Great! <em>What is happening?</em></p>
+
+<ul>
+<li><code>BREW</code> variable just defines where <code>brew</code> binary is located.</li>
+<li><code>PACKAGE</code> is a function to install a Homebrew package only when
+it is not already installed.</li>
+<li><code>CASK</code> is a function to install a Homebrew Cask application only when
+it is not already installed.  <em>If I recall correctly</em>, &ldquo;already installed
+detection&rdquo; only works if you used <code>brew cask</code> to install the application.</li>
+<li><code>install</code> target triggers everything to install.  You would run this on a fresh
+computer and customize it to your liking.</li>
+<li><code>brew</code> target updates Homebrew.</li>
+<li><code>$(BREW)</code> target installs Homebrew.</li>
+<li><code>taps</code> target defines your Homebrew taps.</li>
+<li><code>packages</code> target conditionally installs each Homebrew package.</li>
+<li><code>cask</code> target conditionally installs each Homebrew Cask application.</li>
+<li><code>mas</code> target installs applications from the App Store.  The
+<code>mas</code> binary can be installed via Homebrew.</li>
+<li><code>list</code> is a handy target to list everything you have installed so you can
+update your <code>Makefile</code> with anything new.</li>
+<li><code>clean</code> target is used to free up disk space.</li>
+<li><code>uninstall_brew</code> target nukes Homebrew, <em>use with caution</em>.</li>
+<li><code>uninstall_packages</code> target uninstalls all of your Homebrew packages.</li>
+</ul>
+
+<p>So, this may look a bit complicated/intimidating, but for me it
+helped to simplify things and make some of these install lists more
+re-usable.  For example, when upgrading to a new macOS, you should
+re-install your Homebrew packages:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ make uninstall_packages <span class="o">&amp;&amp;</span> make packages</code></pre></div>
+<p>Done!  Use multiple computers? Missing applications?</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ make cask</code></pre></div>
+<p>Done!</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p><code>dotfile</code> ❤️ <code>Makefile</code></p>
+
+        
+
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://polothy.github.io/post/2018-10-09-heart-makefile/" data-toggle="tooltip" data-placement="top" title="&lt;3 Makefile">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/polothy" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/polothy" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/mark-nielsen-21a982162" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            
+            <a href="https://polothy.github.io/index.xml" title="RSS">
+            
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="https://polothy.github.io/">Mark Nielsen</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;
+          2018
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://polothy.github.io/">Blog</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.49</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://polothy.github.io/js/main.js"></script><script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script>
+<script src="https://polothy.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+  </body>
+</html>
+
