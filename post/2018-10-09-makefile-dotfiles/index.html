@@ -27,7 +27,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Blog" />
 
-  <meta name="generator" content="Hugo 0.49" />
+  <meta name="generator" content="Hugo 0.49.2" />
   <link rel="canonical" href="https://polothy.github.io/post/2018-10-09-makefile-dotfiles/" />
   <link rel="alternate" href="https://polothy.github.io/index.xml" type="application/rss+xml" title="Blog">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -244,7 +244,7 @@ regarding the pipe in the target dependencies.</li>
 <p><em>What&rsquo;s happening?</em></p>
 
 <ul>
-<li>First, create the <code>HOMEFILES</code> varible which is a list of our files in the
+<li>First, create the <code>HOMEFILES</code> variable which is a list of our files in the
 <code>dotfiles/home</code> directory.  A list in <code>make</code> is just space separated list,
 EG: <code>foo bar baz</code> is a list of three items.</li>
 <li><code>DOTFILES</code> variable is used to create a list of files that we want to create in
@@ -263,7 +263,7 @@ is make a link, EG: <code>ln -sv dotfiles/home/.zsh $HOME/.zsh</code></li>
 and <em>interactively</em> deletes your dot files <em>only if</em> that file is a symbolic link.</li>
 </ul>
 
-<p>So, perhaps I got a little verbose in my explination, but it ends up creating
+<p>So, perhaps I got a little verbose in my explanation, but it ends up creating
 a pretty simple <code>Makefile</code> and the result is very safe.  You can re-run <code>make link</code>
 as you add new files to <code>dotfiles/home</code>.  You can run <code>make unlink</code> anytime and
 it asks you for confirmation before unlinking anything.  And on top of that,
@@ -365,11 +365,11 @@ re-install your Homebrew packages:</p>
         
           <div class="blog-tags">
             
-              <a href="https://polothy.github.io//tags/makefile/">Makefile</a>&nbsp;
+              <a href="https://polothy.github.io//tags/makefile/">makefile</a>&nbsp;
             
               <a href="https://polothy.github.io//tags/dotfiles/">dotfiles</a>&nbsp;
             
-              <a href="https://polothy.github.io//tags/homebrew/">Homebrew</a>&nbsp;
+              <a href="https://polothy.github.io//tags/homebrew/">homebrew</a>&nbsp;
             
           </div>
         
@@ -455,7 +455,7 @@ re-install your Homebrew packages:</p>
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.49</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.49.2</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>
