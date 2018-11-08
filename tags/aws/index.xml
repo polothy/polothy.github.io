@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>Istio Egress to AWS Dynamodb</title>
+      <title>Istio Egress to DynamoDB</title>
       <link>https://polothy.github.io/post/2018-11-07-istio-egress-dynamodb/</link>
       <pubDate>Wed, 07 Nov 2018 14:26:17 -0800</pubDate>
       
