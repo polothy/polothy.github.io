@@ -6,10 +6,25 @@
     <description>Recent content in Posts on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 07 Nov 2018 14:26:17 -0800</lastBuildDate>
+    <lastBuildDate>Wed, 07 Nov 2018 20:59:04 -0800</lastBuildDate>
     
 	<atom:link href="https://polothy.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Knative</title>
+      <link>https://polothy.github.io/post/2018-11-07-knative-first-take/</link>
+      <pubDate>Wed, 07 Nov 2018 20:59:04 -0800</pubDate>
+      
+      <guid>https://polothy.github.io/post/2018-11-07-knative-first-take/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://cloud.google.com/knative/&#34;&gt;Knative&lt;/a&gt; (pronounced kay-nay-tiv):&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Kubernetes-based platform to build, deploy, and manage modern serverless workloads.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Istio Egress to DynamoDB</title>

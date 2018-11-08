@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Istio on Blog</title>
-    <link>https://polothy.github.io/tags/istio/</link>
-    <description>Recent content in Istio on Blog</description>
+    <title>Knative on Blog</title>
+    <link>https://polothy.github.io/tags/knative/</link>
+    <description>Recent content in Knative on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 07 Nov 2018 20:59:04 -0800</lastBuildDate>
     
-	<atom:link href="https://polothy.github.io/tags/istio/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://polothy.github.io/tags/knative/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -22,17 +22,6 @@
 &lt;blockquote&gt;
 &lt;p&gt;Kubernetes-based platform to build, deploy, and manage modern serverless workloads.&lt;/p&gt;
 &lt;/blockquote&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Istio Egress to DynamoDB</title>
-      <link>https://polothy.github.io/post/2018-11-07-istio-egress-dynamodb/</link>
-      <pubDate>Wed, 07 Nov 2018 14:26:17 -0800</pubDate>
-      
-      <guid>https://polothy.github.io/post/2018-11-07-istio-egress-dynamodb/</guid>
-      <description>&lt;p&gt;Took a while to figure out how to properly configure Istio egress to allow a service to talk to DynamoDB.  I didn&amp;rsquo;t find many up-to-date resources out there on the topic, so decided to share what worked for me.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
