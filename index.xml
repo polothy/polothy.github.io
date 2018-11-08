@@ -6,10 +6,21 @@
     <description>Recent content on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 09 Oct 2018 21:15:27 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 07 Nov 2018 14:26:17 -0800</lastBuildDate>
     
 	<atom:link href="https://polothy.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Istio Egress to AWS Dynamodb</title>
+      <link>https://polothy.github.io/post/2018-11-07-istio-egress-dynamodb/</link>
+      <pubDate>Wed, 07 Nov 2018 14:26:17 -0800</pubDate>
+      
+      <guid>https://polothy.github.io/post/2018-11-07-istio-egress-dynamodb/</guid>
+      <description>&lt;p&gt;Took a while to figure out how to properly configure Istio egress to allow a service to talk to DynamoDB.  I didn&amp;rsquo;t find many up-to-date resources out there on the topic, so decided to share what worked for me.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Makefile for your dotfiles</title>

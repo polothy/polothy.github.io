@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://polothy.github.io/post/2018-11-07-istio-egress-dynamodb/</loc>
+    <lastmod>2018-11-07T14:26:17-08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://polothy.github.io/post/2018-10-09-makefile-dotfiles/</loc>
     <lastmod>2018-10-09T21:15:27-07:00</lastmod>
   </url>
@@ -18,8 +23,14 @@
   </url>
   
   <url>
+    <loc>https://polothy.github.io/tags/aws/</loc>
+    <lastmod>2018-11-07T14:26:17-08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://polothy.github.io/</loc>
-    <lastmod>2018-10-09T21:15:27-07:00</lastmod>
+    <lastmod>2018-11-07T14:26:17-08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -35,8 +46,26 @@
   </url>
   
   <url>
+    <loc>https://polothy.github.io/tags/dynamodb/</loc>
+    <lastmod>2018-11-07T14:26:17-08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://polothy.github.io/tags/egress/</loc>
+    <lastmod>2018-11-07T14:26:17-08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://polothy.github.io/tags/homebrew/</loc>
     <lastmod>2018-10-09T21:15:27-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://polothy.github.io/tags/istio/</loc>
+    <lastmod>2018-11-07T14:26:17-08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -48,13 +77,13 @@
   
   <url>
     <loc>https://polothy.github.io/post/</loc>
-    <lastmod>2018-10-09T21:15:27-07:00</lastmod>
+    <lastmod>2018-11-07T14:26:17-08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://polothy.github.io/tags/</loc>
-    <lastmod>2018-10-09T21:15:27-07:00</lastmod>
+    <lastmod>2018-11-07T14:26:17-08:00</lastmod>
     <priority>0</priority>
   </url>
   

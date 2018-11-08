@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Istio Egress to AWS Dynamodb</title>
+  <meta property="og:title" content="Istio Egress to AWS Dynamodb" />
+  <meta name="twitter:title" content="Istio Egress to AWS Dynamodb" />
+  <meta name="description" content="Took a while to figure out how to properly configure Istio egress to allow a service to talk to DynamoDB.  I didn&rsquo;t find many up-to-date resources out there on the topic, so decided to share what worked for me.
+
+">
+  <meta property="og:description" content="Took a while to figure out how to properly configure Istio egress to allow a service to talk to DynamoDB.  I didn&rsquo;t find many up-to-date resources out there on the topic, so decided to share what worked for me.
+
+">
+  <meta name="twitter:description" content="Took a while to figure out how to properly configure Istio egress to allow a service to talk to DynamoDB.  I didn&rsquo;t find many up-to-date resources out there on the topic, so decided to share …">
+  <meta name="author" content="Mark Nielsen"/>
+  <meta property="og:image" content="https://polothy.github.io/img/gopher-spirit-coffee.png" />
+  <meta name="twitter:image" content="https://polothy.github.io/img/gopher-spirit-coffee.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@polothy" />
+  <meta name="twitter:creator" content="@polothy" />
+  <meta property="og:url" content="https://polothy.github.io/post/2018-11-07-istio-egress-dynamodb/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Blog" />
+
+  <meta name="generator" content="Hugo 0.50" />
+  <link rel="canonical" href="https://polothy.github.io/post/2018-11-07-istio-egress-dynamodb/" />
+  <link rel="alternate" href="https://polothy.github.io/index.xml" type="application/rss+xml" title="Blog">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://polothy.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" /><link rel="stylesheet" href="https://polothy.github.io/css/syntax.css" /><link rel="stylesheet" href="https://polothy.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+<link rel="stylesheet" href="https://polothy.github.io/css/site.css" />
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://polothy.github.io/">Blog</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Blog" href="https://polothy.github.io/">
+            <img class="avatar-img" src="https://polothy.github.io/img/gopher-spirit-coffee.png" alt="Blog" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Istio Egress to AWS Dynamodb</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fa fa-calendar-o"></i>&nbsp;Posted on November 7, 2018
+  
+  
+  &nbsp;|&nbsp;
+  <i class="fa fa-clock-o"></i> 3 minutes (576 words)
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>Took a while to figure out how to properly configure Istio egress to allow a service to talk to DynamoDB.  I didn&rsquo;t find many up-to-date resources out there on the topic, so decided to share what worked for me.</p>
+
+<p></p>
+
+<p><strong>Word of caution:</strong> Istio is a young project and changing very rapidly.  This post is based on this networking API version: <code>networking.istio.io/v1alpha3</code></p>
+
+<p>This post assumes that you are already running a service in Kubernetes and <a href="https://istio.io">Istio</a>.  The service now needs to talk to DynamoDB.  The DynamoDB table should exist and your Kubernetes cluster nodes should have proper IAM role(s) to talk to your DynamoDB table.  By default, Istio prevents any connections outside of the mesh unless it is explicitly allowed.  The recommended way to do this is with a <code>ServiceEntry</code>, but you can do it by IP range too.</p>
+
+<p>Before starting anything, I really recommend running through the <a href="https://istio.io/docs/tasks/traffic-management/egress/">Egress Task</a>.  It&rsquo;s fast, helps to familiarize yourself with the features and helps to verify that you can indeed get it working.</p>
+
+<p>The <strong>primary thing</strong> that tripped me up when I was trying this for the first time was what that you cannot use a wildcard in your hosts for exposing HTTPS services via a <code>ServiceEntry</code>.  EG: you cannot make a single <code>ServiceEntry</code> with the host <code>*.amazonaws.com</code> to give access to most all of the AWS services.  This is mentioned in <a href="https://istio.io/docs/examples/advanced-egress/egress-tls-origination/">the Istio docs here</a>.  You can use a wildcard in your HTTP hosts.</p>
+
+<h2 id="aws-session-in-the-service">AWS session in the service</h2>
+
+<p>To connect to DynamoDB, our AWS session looks like this (written in Go):</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">sess</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">session</span><span class="p">.</span><span class="nx">NewSession</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">aws</span><span class="p">.</span><span class="nx">Config</span><span class="p">{</span>
+    <span class="nx">Region</span><span class="p">:</span>                        <span class="nx">aws</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="nx">endpoints</span><span class="p">.</span><span class="nx">UsEast1RegionID</span><span class="p">),</span>
+    <span class="nx">CredentialsChainVerboseErrors</span><span class="p">:</span> <span class="nx">aws</span><span class="p">.</span><span class="nx">Bool</span><span class="p">(</span><span class="kc">true</span><span class="p">),</span>
+    <span class="nx">LogLevel</span><span class="p">:</span>                      <span class="nx">aws</span><span class="p">.</span><span class="nx">LogLevel</span><span class="p">(</span><span class="nx">aws</span><span class="p">.</span><span class="nx">LogDebugWithHTTPBody</span><span class="p">),</span>
+<span class="p">})</span>
+
+<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">errors</span><span class="p">.</span><span class="nx">New</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&#34;Failed to create AWS session with error %s&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nx">Error</span><span class="p">()))</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="nx">Continue</span> <span class="nx">with</span> <span class="nx">your</span> <span class="nx">code</span> <span class="nx">to</span> <span class="nx">interact</span> <span class="nx">with</span> <span class="nx">DynamoDB</span></code></pre></div>
+<p>So, nothing fancy here, but let&rsquo;s point out a couple of things:</p>
+
+<ul>
+<li>Not specifying credentials, which means the SDK will basically fall back to IAM roles.  This is what we will be using.</li>
+<li>Besides region, the other parameters are <em>very</em> helpful for debugging outbound connections.  Just look at the logs on your pod for failed requests.</li>
+</ul>
+
+<p>At this point, go ahead and deploy your service and see the logs after you try to interact with DynamoDB.  Should see some errors about which requests were tried and their errors.  It&rsquo;s good to note the hosts here.</p>
+
+<p>In order to allow the service to interact with DynamoDB we need to expose the metadata server, IAM Service and DynamoDB.</p>
+
+<h2 id="egress-to-metadata-server">Egress to metadata server</h2>
+
+<p>Since we are using IAM to authenticate, the AWS SDK will send a request to <code>169.254.169.254</code> which is the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">metadata server</a>.  Envoy will block this, we unblock it with some good old YAML:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">apiVersion<span class="p">:</span><span class="w"> </span>networking.istio.io/v1alpha3<span class="w">
+</span><span class="w"></span>kind<span class="p">:</span><span class="w"> </span>ServiceEntry<span class="w">
+</span><span class="w"></span>metadata<span class="p">:</span><span class="w">
+</span><span class="w">  </span>name<span class="p">:</span><span class="w"> </span>aws-metadata-service-entry<span class="w">
+</span><span class="w"></span>spec<span class="p">:</span><span class="w">
+</span><span class="w">  </span>hosts<span class="p">:</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span><span class="m">169.254</span>.<span class="m">169.254</span><span class="w">
+</span><span class="w">  </span>ports<span class="p">:</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>number<span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
+</span><span class="w">    </span>name<span class="p">:</span><span class="w"> </span>http<span class="w">
+</span><span class="w">    </span>protocol<span class="p">:</span><span class="w"> </span>HTTP<span class="w">
+</span><span class="w">  </span>resolution<span class="p">:</span><span class="w"> </span>DNS<span class="w">
+</span><span class="w">  </span>location<span class="p">:</span><span class="w"> </span>MESH_EXTERNAL</code></pre></div>
+<h2 id="egress-to-iam-service">Egress to IAM service</h2>
+
+<p>Again, since we are using IAM for authentication, the AWS SDK will also send a request to <code>sts.amazonaws.com</code> which is the IAM Service.  Let&rsquo;s allow this request too.  Note, this time it is HTTPS so we also need a <code>VirtualService</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">apiVersion<span class="p">:</span><span class="w"> </span>networking.istio.io/v1alpha3<span class="w">
+</span><span class="w"></span>kind<span class="p">:</span><span class="w"> </span>ServiceEntry<span class="w">
+</span><span class="w"></span>metadata<span class="p">:</span><span class="w">
+</span><span class="w">  </span>name<span class="p">:</span><span class="w"> </span>aws-sts-service-entry<span class="w">
+</span><span class="w"></span>spec<span class="p">:</span><span class="w">
+</span><span class="w">  </span>hosts<span class="p">:</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>sts.amazonaws.com<span class="w">
+</span><span class="w">  </span>ports<span class="p">:</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>number<span class="p">:</span><span class="w"> </span><span class="m">443</span><span class="w">
+</span><span class="w">    </span>name<span class="p">:</span><span class="w"> </span>https<span class="w">
+</span><span class="w">    </span>protocol<span class="p">:</span><span class="w"> </span>HTTPS<span class="w">
+</span><span class="w">  </span>resolution<span class="p">:</span><span class="w"> </span>DNS<span class="w">
+</span><span class="w">  </span>location<span class="p">:</span><span class="w"> </span>MESH_EXTERNAL<span class="w">
+</span><span class="w"></span>---<span class="w">
+</span><span class="w"></span>apiVersion<span class="p">:</span><span class="w"> </span>networking.istio.io/v1alpha3<span class="w">
+</span><span class="w"></span>kind<span class="p">:</span><span class="w"> </span>VirtualService<span class="w">
+</span><span class="w"></span>metadata<span class="p">:</span><span class="w">
+</span><span class="w">  </span>name<span class="p">:</span><span class="w"> </span>aws-sts-virtual-service<span class="w">
+</span><span class="w"></span>spec<span class="p">:</span><span class="w">
+</span><span class="w">  </span>hosts<span class="p">:</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>sts.amazonaws.com<span class="w">
+</span><span class="w">  </span>tls<span class="p">:</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>match<span class="p">:</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>port<span class="p">:</span><span class="w"> </span><span class="m">443</span><span class="w">
+</span><span class="w">      </span>sni_hosts<span class="p">:</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>sts.amazonaws.com<span class="w">
+</span><span class="w">    </span>route<span class="p">:</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>destination<span class="p">:</span><span class="w">
+</span><span class="w">        </span>host<span class="p">:</span><span class="w"> </span>sts.amazonaws.com<span class="w">
+</span><span class="w">        </span>port<span class="p">:</span><span class="w">
+</span><span class="w">          </span>number<span class="p">:</span><span class="w"> </span><span class="m">443</span><span class="w">
+</span><span class="w">      </span>weight<span class="p">:</span><span class="w"> </span><span class="m">100</span></code></pre></div>
+<h2 id="egress-to-dynamodb">Egress to DynamoDB</h2>
+
+<p>Finally, what we actually want to do, interact with DynamoDB.  Allow this request with the following (modify AWS region as necessary):</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">apiVersion<span class="p">:</span><span class="w"> </span>networking.istio.io/v1alpha3<span class="w">
+</span><span class="w"></span>kind<span class="p">:</span><span class="w"> </span>ServiceEntry<span class="w">
+</span><span class="w"></span>metadata<span class="p">:</span><span class="w">
+</span><span class="w">  </span>name<span class="p">:</span><span class="w"> </span>dynamodb-service-entry<span class="w">
+</span><span class="w"></span>spec<span class="p">:</span><span class="w">
+</span><span class="w">  </span>hosts<span class="p">:</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>dynamodb.us-east-<span class="m">1.</span>amazonaws.com<span class="w">
+</span><span class="w">  </span>ports<span class="p">:</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>number<span class="p">:</span><span class="w"> </span><span class="m">443</span><span class="w">
+</span><span class="w">    </span>name<span class="p">:</span><span class="w"> </span>https<span class="w">
+</span><span class="w">    </span>protocol<span class="p">:</span><span class="w"> </span>HTTPS<span class="w">
+</span><span class="w">  </span>resolution<span class="p">:</span><span class="w"> </span>DNS<span class="w">
+</span><span class="w">  </span>location<span class="p">:</span><span class="w"> </span>MESH_EXTERNAL<span class="w">
+</span><span class="w"></span>---<span class="w">
+</span><span class="w"></span>apiVersion<span class="p">:</span><span class="w"> </span>networking.istio.io/v1alpha3<span class="w">
+</span><span class="w"></span>kind<span class="p">:</span><span class="w"> </span>VirtualService<span class="w">
+</span><span class="w"></span>metadata<span class="p">:</span><span class="w">
+</span><span class="w">  </span>name<span class="p">:</span><span class="w"> </span>aws-dynamodb-virtual-service<span class="w">
+</span><span class="w"></span>spec<span class="p">:</span><span class="w">
+</span><span class="w">  </span>hosts<span class="p">:</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>dynamodb.us-east-<span class="m">1.</span>amazonaws.com<span class="w">
+</span><span class="w">  </span>tls<span class="p">:</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>match<span class="p">:</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>port<span class="p">:</span><span class="w"> </span><span class="m">443</span><span class="w">
+</span><span class="w">      </span>sni_hosts<span class="p">:</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>dynamodb.us-east-<span class="m">1.</span>amazonaws.com<span class="w">
+</span><span class="w">    </span>route<span class="p">:</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>destination<span class="p">:</span><span class="w">
+</span><span class="w">        </span>host<span class="p">:</span><span class="w"> </span>dynamodb.us-east-<span class="m">1.</span>amazonaws.com<span class="w">
+</span><span class="w">        </span>port<span class="p">:</span><span class="w">
+</span><span class="w">          </span>number<span class="p">:</span><span class="w"> </span><span class="m">443</span><span class="w">
+</span><span class="w">      </span>weight<span class="p">:</span><span class="w"> </span><span class="m">100</span></code></pre></div>
+<h2 id="conclusion">Conclusion</h2>
+
+<p>After those definitions are deployed to your cluster, your service should now be allowed to talk to the necessary servers in order to authenticate using IAM and to interact with DynamoDB.</p>
+
+<p>Just want to reiterate: no wildcard in your HTTPS hosts for egress.  Istio is still a young project, so this might change down the road.</p>
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://polothy.github.io//tags/istio/">istio</a>&nbsp;
+            
+              <a href="https://polothy.github.io//tags/aws/">aws</a>&nbsp;
+            
+              <a href="https://polothy.github.io//tags/dynamodb/">dynamodb</a>&nbsp;
+            
+              <a href="https://polothy.github.io//tags/egress/">egress</a>&nbsp;
+            
+          </div>
+        
+
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://polothy.github.io/post/2018-10-09-makefile-dotfiles/" data-toggle="tooltip" data-placement="top" title="Makefile for your dotfiles">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/polothy" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/polothy" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/mark-nielsen-21a982162" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            
+            <a href="https://polothy.github.io/index.xml" title="RSS">
+            
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="https://polothy.github.io/">Mark Nielsen</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;
+          2018
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://polothy.github.io/">Blog</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.50</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://polothy.github.io/js/main.js"></script><script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script>
+<script src="https://polothy.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+  </body>
+</html>
+
