@@ -5,31 +5,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Open in Emacs</title>
-  <meta property="og:title" content="Open in Emacs" />
-  <meta name="twitter:title" content="Open in Emacs" />
-  <meta name="description" content="How to open a file/directory or pipe output to Emacs GUI from the terminal.
-
-">
-  <meta property="og:description" content="How to open a file/directory or pipe output to Emacs GUI from the terminal.
-
-">
-  <meta name="twitter:description" content="How to open a file/directory or pipe output to Emacs GUI from the terminal.
-
-">
+  <title>Spacemacs</title>
+  <meta property="og:title" content="Spacemacs" />
+  <meta name="twitter:title" content="Spacemacs" />
   <meta name="author" content="Mark Nielsen"/>
   <meta property="og:image" content="https://polothy.github.io/img/gopher-spirit-coffee.png" />
   <meta name="twitter:image" content="https://polothy.github.io/img/gopher-spirit-coffee.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@polothy" />
   <meta name="twitter:creator" content="@polothy" />
-  <meta property="og:url" content="https://polothy.github.io/post/2018-11-13-open-in-emacs/" />
+  <meta property="og:url" content="https://polothy.github.io/tags/spacemacs/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Blog" />
 
   <meta name="generator" content="Hugo 0.50" />
-  <link rel="canonical" href="https://polothy.github.io/post/2018-11-13-open-in-emacs/" />
-  <link rel="alternate" href="https://polothy.github.io/index.xml" type="application/rss+xml" title="Blog">
+  <link rel="canonical" href="https://polothy.github.io/tags/spacemacs/" />
+  <link rel="alternate" href="https://polothy.github.io/tags/spacemacs/index.xml" type="application/rss+xml" title="Blog">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -151,13 +142,38 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="post-heading">
+            <div class="tags-heading">
               
-                <h1>Open in Emacs</h1>
-              
-              
+                <h1>Spacemacs</h1>
               
               
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+  <div class="container" role="main">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <div class="posts-list">
+          
+            <article class="post-preview">
+              <a href="https://polothy.github.io/post/2018-11-13-open-in-emacs/">
+                <h2 class="post-title">Open in Emacs</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
                 <span class="post-meta">
   
   
@@ -171,96 +187,33 @@
 </span>
 
 
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-
-    
-<div class="container" role="main">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <article role="main" class="blog-post">
-        <p>How to open a file/directory or pipe output to Emacs GUI from the terminal.</p>
+              </p>
+              <div class="post-entry">
+                
+                  <p>How to open a file/directory or pipe output to Emacs GUI from the terminal.</p>
 
 <p></p>
+                  <a href="https://polothy.github.io/post/2018-11-13-open-in-emacs/" class="post-read-more">[Read More]</a>
+                
+              </div>
 
-<p>I like playing around with editors and my most recent discovery is Emacs with the <a href="http://spacemacs.org">Spacemacs</a> distribution.  The very first editor that I fell in love with was TextMate and one of the first things I expect every editor to have is a way to open content up from the terminal.  I like to open up files/directories and to pipe content into the editor, EG:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ mate hodor.txt
-$ <span class="nb">echo</span> <span class="s2">&#34;hi&#34;</span> <span class="p">|</span> mate</code></pre></div>
-<p>When I first looked at Atom, it could open files, but could not handle piping output.  VS Code could open files and eventually supported piping output, but it ended up behaving oddly.  After doing a <code>echo &quot;Hi&quot; | code -</code> it would hang in the terminal, supposedly waiting for more output to pipe.  So, you would have to close the file or <code>Ctr-c</code> to get the prompt back.  Vi(m) works well, after all, it was born in the terminal.  Thinking the same would be for Emacs, but sadly it is more complicated.</p>
+              
+                <div class="blog-tags">
+                  
+                    <a href="https://polothy.github.io//tags/emacs/">emacs</a>&nbsp;
+                  
+                    <a href="https://polothy.github.io//tags/spacemacs/">spacemacs</a>&nbsp;
+                  
+                </div>
+              
 
-<p>Before diving in, a little information about my setup.  Emacs was installed with <code>brew cask install emacs</code>.  I was using <code>emacs-plus</code> tap, but I like the simplicity of the cask.  I mention this because after switching to the cask, I had to refactor my bash script below.  In addition, you need to enable the Emacs server in your Spacemacs configuration.  Modify these settings under <code>dotspacemacs/init</code>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="c1">;; Start an Emacs server if one is not already running.</span>
-<span class="nv">dotspacemacs-enable-server</span> <span class="ss">&#39;t</span>
-<span class="c1">;; Where to save server socket file.</span>
-<span class="nv">dotspacemacs-server-socket-dir</span> <span class="o">&#39;</span><span class="s">&#34;~/.emacs.d/server&#34;</span></code></pre></div>
-<p>OK, continuing on.  What makes it more complicated than other editors is that you have the Emacs GUI and the Emacs server.  After lots of Googling, tinkering and more hours than I care to mention 😄, this is what I came up with:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
-</span><span class="cp"></span>
-<span class="c1"># Usage: ec file.txt
-</span><span class="c1"># OR:    echo &#34;hi&#34; | ec
-</span><span class="c1"></span>
-<span class="nv">PARAMS</span><span class="o">=(</span>-a <span class="s1">&#39;&#39;</span> -nq -s ~/.emacs.d/server/server<span class="o">)</span>
-
-<span class="c1"># Determine if Emacs is running already or not.
-</span><span class="c1"></span><span class="k">if</span> <span class="o">[</span> ! -e ~/.emacs.d/server/server <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nv">PARAMS</span><span class="o">+=(</span>-c<span class="o">)</span>
-<span class="k">fi</span>
-
-<span class="k">if</span> <span class="o">[</span> -z <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nv">TMP</span><span class="o">=</span><span class="s2">&#34;</span><span class="k">$(</span>mktemp /tmp/stdin-XXX<span class="k">)</span><span class="s2">&#34;</span>
-    cat &gt;<span class="nv">$TMP</span>
-    emacsclient <span class="s2">&#34;</span><span class="si">${</span><span class="nv">PARAMS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span> <span class="nv">$TMP</span> <span class="p">&amp;</span>&gt; /dev/null
-    rm <span class="nv">$TMP</span>
-<span class="k">elif</span> <span class="o">[</span> -e <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    emacsclient <span class="s2">&#34;</span><span class="si">${</span><span class="nv">PARAMS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> <span class="p">&amp;</span>&gt; /dev/null
-<span class="k">else</span>
-    <span class="nb">echo</span> <span class="s2">&#34;Error: argument passed does not appear to be a file or directory.&#34;</span>
-    <span class="nb">exit</span> <span class="m">1</span>
-<span class="k">fi</span></code></pre></div>
-<p>This goes into a file named <code>ec</code> (or whatever you want) which should be in your <code>$PATH</code>.  What this does is first detects if the Emacs server is running by looking for the server socket file (we defined the location of that above). If the server is running, then Emacs is already open, so I omit the <code>-c</code> parameter to open in the current frame. Otherwise, I use <code>-c</code> to open a new frame.</p>
-
-<p>The second thing the script does is detect if there is no argument.  If that&rsquo;s the case, then it sends the piped output to the temporary file, opens the file in Emacs GUI and then removes the file.  Otherwise, if there is an argument that is a file/directory, open that via Emacs GUI.</p>
-
-<p>Is it perfect? Probably not.  Detection of piping output into the script could be improved <em>a lot</em>.  I&rsquo;m betting that the detection of Emacs server running could also be improved. For example, I could imagine a scenario where the server is still running, but I have closed all the frames. But, I&rsquo;m not shooting for absolute perfection, I can now handle my to main use cases:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ ec hodor.txt
-$ <span class="nb">echo</span> <span class="s2">&#34;hi&#34;</span> <span class="p">|</span> ec</code></pre></div>
-
-        
-          <div class="blog-tags">
-            
-              <a href="https://polothy.github.io//tags/emacs/">emacs</a>&nbsp;
-            
-              <a href="https://polothy.github.io//tags/spacemacs/">spacemacs</a>&nbsp;
-            
-          </div>
-        
-
-        
-      </article>
-
-      
-        <ul class="pager blog-pager">
+            </article>
           
-            <li class="previous">
-              <a href="https://polothy.github.io/post/2018-11-07-knative-first-take/" data-toggle="tooltip" data-placement="top" title="Knative">&larr; Previous Post</a>
-            </li>
-          
-          
-        </ul>
-      
-
-
-      
-
+        </div>
+        
+      </div>
     </div>
   </div>
-</div>
 
     <footer>
   <div class="container">
@@ -295,7 +248,7 @@ $ <span class="nb">echo</span> <span class="s2">&#34;hi&#34;</span> <span class=
           
           <li>
             
-            <a href="https://polothy.github.io/index.xml" title="RSS">
+            <a href="https://polothy.github.io/tags/spacemacs/index.xml" title="RSS">
             
               <span class="fa-stack fa-lg">
                 <i class="fa fa-circle fa-stack-2x"></i>
