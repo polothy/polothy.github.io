@@ -6,10 +6,19 @@
     <description>Recent content in Aws on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 07 Nov 2018 14:26:17 -0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Dec 2018 20:22:44 -0800</lastBuildDate>
     
 	<atom:link href="https://polothy.github.io/tags/aws/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>re:Invent 2018</title>
+      <link>https://polothy.github.io/post/2018-12-17-reinvent-2018/</link>
+      <pubDate>Mon, 17 Dec 2018 20:22:44 -0800</pubDate>
+      
+      <guid>https://polothy.github.io/post/2018-12-17-reinvent-2018/</guid>
+      <description>&lt;p&gt;My company was gracious enough to send me to AWS re:Invent 2018 this year!&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Istio Egress to DynamoDB</title>
@@ -17,9 +26,7 @@
       <pubDate>Wed, 07 Nov 2018 14:26:17 -0800</pubDate>
       
       <guid>https://polothy.github.io/post/2018-11-07-istio-egress-dynamodb/</guid>
-      <description>&lt;p&gt;Took a while to figure out how to properly configure Istio egress to allow a service to talk to DynamoDB.  I didn&amp;rsquo;t find many up-to-date resources out there on the topic, so decided to share what worked for me.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Took a while to figure out how to properly configure Istio egress to allow a service to talk to DynamoDB.  I didn&amp;rsquo;t find many up-to-date resources out there on the topic, so decided to share what worked for me.&lt;/p&gt;</description>
     </item>
     
   </channel>

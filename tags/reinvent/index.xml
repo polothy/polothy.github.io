@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reinvent on Blog</title>
+    <link>https://polothy.github.io/tags/reinvent/</link>
+    <description>Recent content in Reinvent on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 17 Dec 2018 20:22:44 -0800</lastBuildDate>
+    
+	<atom:link href="https://polothy.github.io/tags/reinvent/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>re:Invent 2018</title>
+      <link>https://polothy.github.io/post/2018-12-17-reinvent-2018/</link>
+      <pubDate>Mon, 17 Dec 2018 20:22:44 -0800</pubDate>
+      
+      <guid>https://polothy.github.io/post/2018-12-17-reinvent-2018/</guid>
+      <description>&lt;p&gt;My company was gracious enough to send me to AWS re:Invent 2018 this year!&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,10 +6,19 @@
     <description>Recent content on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 13 Nov 2018 19:27:56 -0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Dec 2018 20:22:44 -0800</lastBuildDate>
     
 	<atom:link href="https://polothy.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>re:Invent 2018</title>
+      <link>https://polothy.github.io/post/2018-12-17-reinvent-2018/</link>
+      <pubDate>Mon, 17 Dec 2018 20:22:44 -0800</pubDate>
+      
+      <guid>https://polothy.github.io/post/2018-12-17-reinvent-2018/</guid>
+      <description>&lt;p&gt;My company was gracious enough to send me to AWS re:Invent 2018 this year!&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Open in Emacs</title>
@@ -17,9 +26,7 @@
       <pubDate>Tue, 13 Nov 2018 19:27:56 -0800</pubDate>
       
       <guid>https://polothy.github.io/post/2018-11-13-open-in-emacs/</guid>
-      <description>&lt;p&gt;How to open a file/directory or pipe output to Emacs GUI from the terminal.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;How to open a file/directory or pipe output to Emacs GUI from the terminal.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -32,9 +39,7 @@
 
 &lt;blockquote&gt;
 &lt;p&gt;Kubernetes-based platform to build, deploy, and manage modern serverless workloads.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/blockquote&gt;</description>
     </item>
     
     <item>
@@ -43,9 +48,7 @@
       <pubDate>Wed, 07 Nov 2018 14:26:17 -0800</pubDate>
       
       <guid>https://polothy.github.io/post/2018-11-07-istio-egress-dynamodb/</guid>
-      <description>&lt;p&gt;Took a while to figure out how to properly configure Istio egress to allow a service to talk to DynamoDB.  I didn&amp;rsquo;t find many up-to-date resources out there on the topic, so decided to share what worked for me.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Took a while to figure out how to properly configure Istio egress to allow a service to talk to DynamoDB.  I didn&amp;rsquo;t find many up-to-date resources out there on the topic, so decided to share what worked for me.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -54,9 +57,7 @@
       <pubDate>Tue, 09 Oct 2018 21:15:27 -0700</pubDate>
       
       <guid>https://polothy.github.io/post/2018-10-09-makefile-dotfiles/</guid>
-      <description>&lt;p&gt;Using a &lt;code&gt;Makefile&lt;/code&gt; for your &lt;code&gt;dotfiles&lt;/code&gt; can help simplify your dot file life!&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Using a &lt;code&gt;Makefile&lt;/code&gt; for your &lt;code&gt;dotfiles&lt;/code&gt; can help simplify your dot file life!&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -65,9 +66,7 @@
       <pubDate>Tue, 09 Oct 2018 19:45:24 -0700</pubDate>
       
       <guid>https://polothy.github.io/post/2018-10-09-heart-makefile/</guid>
-      <description>&lt;p&gt;The secret is out, I really like a good &lt;code&gt;Makefile&lt;/code&gt;!&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;The secret is out, I really like a good &lt;code&gt;Makefile&lt;/code&gt;!&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -76,9 +75,7 @@
       <pubDate>Mon, 08 Oct 2018 15:41:13 -0700</pubDate>
       
       <guid>https://polothy.github.io/post/2018-10-08-hello-blog/</guid>
-      <description>&lt;p&gt;So, I decided to make a blog.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;So, I decided to make a blog.&lt;/p&gt;</description>
     </item>
     
   </channel>
