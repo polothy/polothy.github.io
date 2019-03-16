@@ -6,10 +6,19 @@
     <description>Recent content in Emacs on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 13 Nov 2018 19:27:56 -0800</lastBuildDate>
+    <lastBuildDate>Thu, 14 Mar 2019 19:29:23 -0700</lastBuildDate>
     
 	<atom:link href="https://polothy.github.io/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>OneNote to Org mode</title>
+      <link>https://polothy.github.io/post/2019-03-14-onenote-to-orgmode/</link>
+      <pubDate>Thu, 14 Mar 2019 19:29:23 -0700</pubDate>
+      
+      <guid>https://polothy.github.io/post/2019-03-14-onenote-to-orgmode/</guid>
+      <description>&lt;p&gt;I decided to make a very nerdy decision: use Org mode instead of OneNote.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Open in Emacs</title>
