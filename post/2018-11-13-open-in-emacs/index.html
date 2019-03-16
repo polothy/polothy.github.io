@@ -64,7 +64,7 @@
   "description" : "How to open a file/directory or pipe output to Emacs GUI from the terminal.
 ",
   "inLanguage" : "en",
-  "wordCount": 589,
+  "wordCount": 606,
   "datePublished" : "2018-11-13T19:27:56",
   "dateModified" : "2018-11-13T19:27:56",
   "image" : "https://polothy.github.io/img/gopher-spirit-coffee.png",
@@ -282,6 +282,8 @@ $ <span class="nb">echo</span> <span class="s2">&#34;hi&#34;</span> <span class=
 <span class="c1"># Usage: ec file.txt</span>
 <span class="c1"># OR:    echo &#34;hi&#34; | ec</span>
 
+<span class="c1">#set -ex</span>
+
 <span class="nv">PARAMS</span><span class="o">=(</span>-a <span class="s1">&#39;&#39;</span> -nq -s ~/.emacs.d/server/server<span class="o">)</span>
 
 <span class="c1"># Determine if Emacs is running already or not.</span>
@@ -294,15 +296,14 @@ $ <span class="nb">echo</span> <span class="s2">&#34;hi&#34;</span> <span class=
     cat &gt;<span class="nv">$TMP</span>
     emacsclient <span class="s2">&#34;</span><span class="si">${</span><span class="nv">PARAMS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span> <span class="nv">$TMP</span> <span class="p">&amp;</span>&gt; /dev/null
     rm <span class="nv">$TMP</span>
-<span class="k">elif</span> <span class="o">[</span> -e <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    emacsclient <span class="s2">&#34;</span><span class="si">${</span><span class="nv">PARAMS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> <span class="p">&amp;</span>&gt; /dev/null
 <span class="k">else</span>
-    <span class="nb">echo</span> <span class="s2">&#34;Error: argument passed does not appear to be a file or directory.&#34;</span>
-    <span class="nb">exit</span> <span class="m">1</span>
+    emacsclient <span class="s2">&#34;</span><span class="si">${</span><span class="nv">PARAMS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> <span class="p">&amp;</span>&gt; /dev/null
 <span class="k">fi</span></code></pre></div>
+<p><strong>UPDATE:</strong> I modified the above script to no longer verify if the passed argument is a file or directory that exists.  Reason being, if you want to make a new file, you can with the new code, EG: <code>ec newfile.txt</code>.</p>
+
 <p>This goes into a file named <code>ec</code> (or whatever you want) which should be in your <code>$PATH</code>.  What this does is first detects if the Emacs server is running by looking for the server socket file (we defined the location of that above). If the server is running, then Emacs is already open, so I omit the <code>-c</code> parameter to open in the current frame. Otherwise, I use <code>-c</code> to open a new frame.</p>
 
-<p>The second thing the script does is detect if there is no argument.  If that&rsquo;s the case, then it sends the piped output to the temporary file, opens the file in Emacs GUI and then removes the file.  Otherwise, if there is an argument that is a file/directory, open that via Emacs GUI.</p>
+<p>The second thing the script does is detect if there is no argument.  If that&rsquo;s the case, then it sends the piped output to the temporary file, opens the file in Emacs GUI and then removes the file.  Otherwise, if there is an argument, open that via Emacs GUI.</p>
 
 <p>Is it perfect? Probably not.  Detection of piping output into the script could be improved <em>a lot</em>.  I&rsquo;m betting that the detection of Emacs server running could also be improved. For example, I could imagine a scenario where the server is still running, but I have closed all the frames. But, I&rsquo;m not shooting for absolute perfection, I can now handle my to main use cases:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ ec hodor.txt
