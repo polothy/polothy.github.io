@@ -7,12 +7,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Overview of all pages with the tag #Zsh - Blog</title>
-  <meta property="og:title" content="Overview of all pages with the tag #Zsh" />
-  <meta name="twitter:title" content="Overview of all pages with the tag #Zsh" />
-  <meta name="description" content="Overview of all pages with the tag #Zsh, such as: Kube Prompt">
-  <meta property="og:description" content="Overview of all pages with the tag #Zsh, such as: Kube Prompt">
-  <meta name="twitter:description" content="Overview of all pages with the tag #Zsh, such as: Kube Prompt">
+  <title>bat - Blog</title>
+  <meta property="og:title" content="bat" />
+  <meta name="twitter:title" content="bat" />
+  <meta name="description" content="bat is the new cat.">
+  <meta property="og:description" content="bat is the new cat.">
+  <meta name="twitter:description" content="bat is the new cat.">
   <meta name="author" content="Mark Nielsen"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -33,13 +33,64 @@
   
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https://polothy.github.io/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https://polothy.github.io/post/2019-03-18-bat/",
+          "name": "Bat"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Mark Nielsen"
+  },
+  "headline": "bat",
+  "description" : "bat is the new cat.
+",
+  "inLanguage" : "en",
+  "wordCount": 228,
+  "datePublished" : "2019-03-18T19:30:54",
+  "dateModified" : "2019-03-18T19:30:54",
+  "image" : "https://polothy.github.io/img/gopher-spirit-coffee.png",
+  "keywords" : [ "awesome-cli" ],
+  "mainEntityOfPage" : "https://polothy.github.io/post/2019-03-18-bat/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https://polothy.github.io/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https://polothy.github.io/img/gopher-spirit-coffee.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
 
-<meta property="og:title" content="Zsh" />
+<meta property="og:title" content="bat" />
+<meta property="og:description" content="bat is the new cat.">
 <meta property="og:image" content="https://polothy.github.io/img/gopher-spirit-coffee.png" />
-<meta property="og:url" content="https://polothy.github.io/tags/zsh/" />
+<meta property="og:url" content="https://polothy.github.io/post/2019-03-18-bat/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Blog" />
-  <meta name="twitter:title" content="Zsh" />
+  <meta name="twitter:title" content="bat" />
+  <meta name="twitter:description" content="bat is the new cat.">
   <meta name="twitter:image" content="https://polothy.github.io/img/gopher-spirit-coffee.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@polothy" />
@@ -49,7 +100,7 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@polothy" />
   <meta name="twitter:creator" content="@polothy" />
-  <meta property="og:url" content="https://polothy.github.io/tags/zsh/" />
+  <meta property="og:url" content="https://polothy.github.io/post/2019-03-18-bat/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Blog" />
 
@@ -176,14 +227,29 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="tags-heading">
+            <div class="post-heading">
               
-                <h1>Zsh</h1>
-              
-              
-                <hr class="small">
+                <h1>bat</h1>
               
               
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on March 18, 2019
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
+  
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Mark Nielsen
+  
+  
+</span>
+
+
               
             </div>
           </div>
@@ -194,64 +260,77 @@
 
 
     
-  <div class="container" role="main">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p><code>bat</code> is the new <code>cat</code>.</p>
+
+<p>Recently started using <a href="https://github.com/sharkdp/bat">bat</a> as a drop in
+replacement for <code>cat</code>. What <code>bat</code> has going for it is that it can do some really
+nice syntax highlighting. I often find myself cruising around on the CLI and I
+need to take a look inside a file. I would usually use <code>less</code> for this or use
+<code>vim</code> if I wanted some syntax highlighting. Now I can just use <code>bat</code> and it&rsquo;s
+faster for my workflow. It even automatically pages with <code>less</code> so it is easy to
+search and quit. Here is an example:</p>
+
+<p><img src="/img/bat-demo.png" alt="bat demo" /></p>
+
+<p>If that&rsquo;s too fancy for you, you can use <code>-p</code> to just get the syntax
+highlighting. See the <a href="https://github.com/sharkdp/bat">project home page</a> or
+<code>man bat</code> for more details on what <code>bat</code> can do, like integration with <code>git</code>,
+config file, etc.</p>
+
+<p>You can of course pipe output to <code>bat</code>, but you need to tell it what the
+language is so it can do the highlighting. EG:</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">kubectl get configmap istio -n istio-system -oyaml <span class="p">|</span> bat -l yaml</code></pre></div>
+<p>Of course, I&rsquo;m always big on making things look good. You can use <code>bat
+--list-themes</code> to list available themes along with a short preview of each. You
+can set one by adding the <code>BAT_THEME</code> environment variable to your profile:</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># bat configs.</span>
+<span class="nb">export</span> <span class="nv">BAT_THEME</span><span class="o">=</span><span class="s2">&#34;OneHalfDark&#34;</span></code></pre></div>
+<p>That&rsquo;s all. Really simple utility to help improve life on the CLI.</p>
+
         
-        <div class="posts-list">
-          
-            <article class="post-preview">
-              <a href="https://polothy.github.io/post/2019-03-13-kube-prompt/">
-                <h2 class="post-title">Kube Prompt</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on March 13, 2019
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
-  
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Mark Nielsen
-  
-  
-</span>
-
-
-              </p>
-              <div class="post-entry">
-                
-                  <p>Been switching between Kubernetes clusters a lot and needed a way to keep track
-of current context and namespace, <code>kube-ps1</code> to the rescue!</p>
-                  <a href="https://polothy.github.io/post/2019-03-13-kube-prompt/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-                <div class="blog-tags">
-                  
-                    <a href="https://polothy.github.io//tags/kubernetes/">kubernetes</a>&nbsp;
-                  
-                    <a href="https://polothy.github.io//tags/zsh/">zsh</a>&nbsp;
-                  
-                    <a href="https://polothy.github.io//tags/awesome-cli/">awesome-cli</a>&nbsp;
-                  
-                </div>
-              
-
-            </article>
-          
-        </div>
+          <div class="blog-tags">
+            
+              <a href="https://polothy.github.io//tags/awesome-cli/">awesome-cli</a>&nbsp;
+            
+          </div>
         
-      </div>
+
+        
+
+        
+          
+          
+          <h4 class="see-also">See also</h4>
+          <ul>
+          
+            <li><a href="/post/2019-03-13-kube-prompt/">Kube Prompt</a></li>
+          
+          </ul>
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://polothy.github.io/post/2019-03-14-onenote-to-orgmode/" data-toggle="tooltip" data-placement="top" title="OneNote to Org mode">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+
     </div>
   </div>
+</div>
 
     <footer>
   <div class="container">
@@ -286,7 +365,7 @@ of current context and namespace, <code>kube-ps1</code> to the rescue!</p>
           
           <li>
             
-            <a href="https://polothy.github.io/tags/zsh/index.xml" title="RSS">
+            <a href="https://polothy.github.io/index.xml" title="RSS">
             
               <span class="fa-stack fa-lg">
                 <i class="fas fa-circle fa-stack-2x"></i>

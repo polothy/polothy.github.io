@@ -6,10 +6,19 @@
     <description>Recent content on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 14 Mar 2019 19:29:23 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 18 Mar 2019 19:30:54 -0700</lastBuildDate>
     
 	<atom:link href="https://polothy.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>bat</title>
+      <link>https://polothy.github.io/post/2019-03-18-bat/</link>
+      <pubDate>Mon, 18 Mar 2019 19:30:54 -0700</pubDate>
+      
+      <guid>https://polothy.github.io/post/2019-03-18-bat/</guid>
+      <description>&lt;p&gt;&lt;code&gt;bat&lt;/code&gt; is the new &lt;code&gt;cat&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>OneNote to Org mode</title>
