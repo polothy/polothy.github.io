@@ -283,12 +283,12 @@ config file, etc.</p>
 
 <p>You can of course pipe output to <code>bat</code>, but you need to tell it what the
 language is so it can do the highlighting. EG:</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">kubectl get configmap istio -n istio-system -oyaml <span class="p">|</span> bat -l yaml</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">kubectl get configmap istio -n istio-system -oyaml | bat -l yaml</code></pre></div>
 <p>Of course, I&rsquo;m always big on making things look good. You can use <code>bat
 --list-themes</code> to list available themes along with a short preview of each. You
 can set one by adding the <code>BAT_THEME</code> environment variable to your profile:</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># bat configs.</span>
-<span class="nb">export</span> <span class="nv">BAT_THEME</span><span class="o">=</span><span class="s2">&#34;OneHalfDark&#34;</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#6272a4"># bat configs.</span>
+<span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">BAT_THEME</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;OneHalfDark&#34;</span></code></pre></div>
 <p>That&rsquo;s all. Really simple utility to help improve life on the CLI.</p>
 
         

@@ -301,23 +301,23 @@ link between the files in my <code>dotfiles</code> to my <code>$HOME</code> dire
 <li><a href="https://www.gnu.org/software/make/manual/make.html#Prerequisite-Types">Read this</a>
 regarding the pipe in the target dependencies.</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-makefile" data-lang="makefile"><span class="nv">HOMEFILES</span> <span class="o">:=</span> <span class="k">$(</span>shell ls -A home<span class="k">)</span>
-<span class="nv">DOTFILES</span> <span class="o">:=</span> <span class="k">$(</span>addprefix <span class="k">$(</span>HOME<span class="k">)</span>/,<span class="k">$(</span>HOMEFILES<span class="k">))</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-makefile" data-lang="makefile"><span style="color:#8be9fd;font-style:italic">HOMEFILES</span> <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">$(</span>shell ls -A home<span style="color:#ff79c6">)</span>
+<span style="color:#8be9fd;font-style:italic">DOTFILES</span> <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">$(</span>addprefix <span style="color:#ff79c6">$(</span>HOME<span style="color:#ff79c6">)</span>/,<span style="color:#ff79c6">$(</span>HOMEFILES<span style="color:#ff79c6">))</span>
 
-<span class="nf">.PHONEY</span><span class="o">:</span> <span class="n">link</span> <span class="n">unlink</span>
+<span style="color:#50fa7b">.PHONEY</span><span style="color:#ff79c6">:</span> link unlink
 
-<span class="nf">link</span><span class="o">:</span> <span class="p">|</span> <span class="k">$(</span><span class="nv">DOTFILES</span><span class="k">)</span>
+<span style="color:#50fa7b">link</span><span style="color:#ff79c6">:</span> | <span style="color:#ff79c6">$(</span><span style="color:#8be9fd;font-style:italic">DOTFILES</span><span style="color:#ff79c6">)</span>
 
-<span class="c"># This will link all of our dot files into our home directory.  The
-</span><span class="c"># magic happening in the first arg to ln is just grabbing the file name
-</span><span class="c"># and appending the path to dotfiles/home
-</span><span class="c"></span><span class="nf">$(DOTFILES)</span><span class="o">:</span>
-	@ln -sv <span class="s2">&#34;</span><span class="k">$(</span>PWD<span class="k">)</span><span class="s2">/home/</span><span class="k">$(</span>notdir <span class="nv">$@</span><span class="k">)</span><span class="s2">&#34;</span> <span class="nv">$@</span>
+<span style="color:#6272a4"># This will link all of our dot files into our home directory.  The
+</span><span style="color:#6272a4"># magic happening in the first arg to ln is just grabbing the file name
+</span><span style="color:#6272a4"># and appending the path to dotfiles/home
+</span><span style="color:#6272a4"></span><span style="color:#50fa7b">$(DOTFILES)</span><span style="color:#ff79c6">:</span>
+	@ln -sv <span style="color:#f1fa8c">&#34;</span><span style="color:#ff79c6">$(</span>PWD<span style="color:#ff79c6">)</span><span style="color:#f1fa8c">/home/</span><span style="color:#ff79c6">$(</span>notdir <span style="color:#8be9fd;font-style:italic">$@</span><span style="color:#ff79c6">)</span><span style="color:#f1fa8c">&#34;</span> <span style="color:#8be9fd;font-style:italic">$@</span>
 
-<span class="c"># Interactively delete symbolic links.
-</span><span class="c"></span><span class="nf">unlink</span><span class="o">:</span>
-	@echo <span class="s2">&#34;Unlinking dotfiles&#34;</span>
-	@for f in <span class="k">$(</span>DOTFILES<span class="k">)</span><span class="p">;</span> <span class="k">do</span> <span class="k">if</span> <span class="o">[</span> -h <span class="nv">$$</span>f <span class="o">]</span><span class="p">;</span> <span class="k">then</span> rm -i <span class="nv">$$</span>f<span class="p">;</span> <span class="k">fi</span> <span class="p">;</span> <span class="k">done</span>
+<span style="color:#6272a4"># Interactively delete symbolic links.
+</span><span style="color:#6272a4"></span><span style="color:#50fa7b">unlink</span><span style="color:#ff79c6">:</span>
+	@echo <span style="color:#f1fa8c">&#34;Unlinking dotfiles&#34;</span>
+	@for f in <span style="color:#ff79c6">$(</span>DOTFILES<span style="color:#ff79c6">)</span>; <span style="color:#ff79c6">do</span> <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">[</span> -h <span style="color:#8be9fd;font-style:italic">$$</span>f <span style="color:#ff79c6">]</span>; <span style="color:#ff79c6">then</span> rm -i <span style="color:#8be9fd;font-style:italic">$$</span>f; <span style="color:#ff79c6">fi</span> ; <span style="color:#ff79c6">done</span>
 </code></pre></div>
 <p><em>What&rsquo;s happening?</em></p>
 
@@ -351,56 +351,56 @@ it will not overwritten or deleted.</p>
 <h2 id="replacing-brewfile">Replacing Brewfile</h2>
 
 <p>Replacing <code>Brewfile</code> is a little more involved, but ends up working quite well.</p>
-<div class="highlight"><pre class="chroma"><code class="language-makefile" data-lang="makefile"><span class="nv">BREW</span> <span class="o">:=</span> /usr/local/bin/brew
-<span class="nv">PACKAGE</span> <span class="o">=</span> brew list --versions <span class="k">$(</span><span class="m">1</span><span class="k">)</span> &gt; /dev/null <span class="o">||</span> brew install <span class="k">$(</span><span class="m">1</span><span class="k">)$(</span><span class="m">2</span><span class="k">)</span>
-<span class="nv">CASK</span> <span class="o">=</span> brew cask list <span class="k">$(</span><span class="m">1</span><span class="k">)</span> &gt; /dev/null <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="o">||</span> brew cask install <span class="k">$(</span><span class="m">1</span><span class="k">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-makefile" data-lang="makefile"><span style="color:#8be9fd;font-style:italic">BREW</span> <span style="color:#ff79c6">:=</span> /usr/local/bin/brew
+<span style="color:#8be9fd;font-style:italic">PACKAGE</span> <span style="color:#ff79c6">=</span> brew list --versions <span style="color:#ff79c6">$(</span><span style="color:#bd93f9">1</span><span style="color:#ff79c6">)</span> &gt; /dev/null <span style="color:#ff79c6">||</span> brew install <span style="color:#ff79c6">$(</span><span style="color:#bd93f9">1</span><span style="color:#ff79c6">)$(</span><span style="color:#bd93f9">2</span><span style="color:#ff79c6">)</span>
+<span style="color:#8be9fd;font-style:italic">CASK</span> <span style="color:#ff79c6">=</span> brew cask list <span style="color:#ff79c6">$(</span><span style="color:#bd93f9">1</span><span style="color:#ff79c6">)</span> &gt; /dev/null <span style="color:#bd93f9">2</span>&gt;&amp;<span style="color:#bd93f9">1</span> <span style="color:#ff79c6">||</span> brew cask install <span style="color:#ff79c6">$(</span><span style="color:#bd93f9">1</span><span style="color:#ff79c6">)</span>
 
-<span class="nf">.PHONEY</span><span class="o">:</span> <span class="n">link</span> <span class="n">install</span> <span class="n">brew</span> <span class="n">taps</span> <span class="n">packages</span> <span class="n">casks</span> <span class="n">mas</span> <span class="n">list</span> <span class="n">unlink</span> <span class="n">clean</span> <span class="n">uninstall_brew</span> <span class="n">uninstall_packages</span>
+<span style="color:#50fa7b">.PHONEY</span><span style="color:#ff79c6">:</span> link install brew taps packages casks mas list unlink clean uninstall_brew uninstall_packages
 
-<span class="nf">install</span><span class="o">:</span> <span class="p">|</span> <span class="n">taps</span> <span class="n">packages</span> <span class="n">casks</span> <span class="n">mas</span> <span class="n">link</span> <span class="n">clean</span>
+<span style="color:#50fa7b">install</span><span style="color:#ff79c6">:</span> | taps packages casks mas link clean
 
-<span class="nf">brew</span><span class="o">:</span> <span class="p">|</span> <span class="k">$(</span><span class="nv">BREW</span><span class="k">)</span>
+<span style="color:#50fa7b">brew</span><span style="color:#ff79c6">:</span> | <span style="color:#ff79c6">$(</span><span style="color:#8be9fd;font-style:italic">BREW</span><span style="color:#ff79c6">)</span>
 	brew update
 
-<span class="nf">$(BREW)</span><span class="o">:</span>
-	@ruby -e <span class="s2">&#34;</span><span class="nv">$$</span><span class="s2">(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&#34;</span>
+<span style="color:#50fa7b">$(BREW)</span><span style="color:#ff79c6">:</span>
+	@ruby -e <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$$</span><span style="color:#f1fa8c">(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&#34;</span>
 
-<span class="nf">taps</span><span class="o">:</span> <span class="p">|</span> <span class="n">brew</span>
+<span style="color:#50fa7b">taps</span><span style="color:#ff79c6">:</span> | brew
 	brew tap homebrew/cask
-	<span class="c1"># and many more...</span>
+	<span style="color:#6272a4"># and many more...</span>
 
-<span class="nf">packages</span><span class="o">:</span> <span class="p">|</span> <span class="n">brew</span>
-	<span class="k">$(</span>call PACKAGE,go<span class="k">)</span>
-	<span class="c1"># and many more...</span>
+<span style="color:#50fa7b">packages</span><span style="color:#ff79c6">:</span> | brew
+	<span style="color:#ff79c6">$(</span>call PACKAGE,go<span style="color:#ff79c6">)</span>
+	<span style="color:#6272a4"># and many more...</span>
 
-<span class="nf">casks</span><span class="o">:</span> <span class="p">|</span> <span class="n">brew</span>
-	<span class="k">$(</span>call CASK,alfred<span class="k">)</span>
-	<span class="c1"># and many more...</span>
+<span style="color:#50fa7b">casks</span><span style="color:#ff79c6">:</span> | brew
+	<span style="color:#ff79c6">$(</span>call CASK,alfred<span style="color:#ff79c6">)</span>
+	<span style="color:#6272a4"># and many more...</span>
 
-<span class="nf">mas</span><span class="o">:</span>
-	mas install <span class="m">587512244</span> <span class="c1"># Kaleidoscope</span>
-	<span class="c1"># and many more...</span>
+<span style="color:#50fa7b">mas</span><span style="color:#ff79c6">:</span>
+	mas install <span style="color:#bd93f9">587512244</span> <span style="color:#6272a4"># Kaleidoscope</span>
+	<span style="color:#6272a4"># and many more...</span>
 
-<span class="c"># Use to update install lists.
-</span><span class="c"></span><span class="nf">list</span><span class="o">:</span>
+<span style="color:#6272a4"># Use to update install lists.
+</span><span style="color:#6272a4"></span><span style="color:#50fa7b">list</span><span style="color:#ff79c6">:</span>
 	brew tap
-	@echo <span class="s2">&#34;\n&#34;</span>
+	@echo <span style="color:#f1fa8c">&#34;\n&#34;</span>
 	brew leaves --full-name
-	@echo <span class="s2">&#34;\n&#34;</span>
+	@echo <span style="color:#f1fa8c">&#34;\n&#34;</span>
 	brew cask list --full-name
-	@echo <span class="s2">&#34;\n&#34;</span>
+	@echo <span style="color:#f1fa8c">&#34;\n&#34;</span>
 	mas list
 
-<span class="nf">clean</span><span class="o">:</span>
+<span style="color:#50fa7b">clean</span><span style="color:#ff79c6">:</span>
 	brew cleanup
 	brew cask cleanup
 
-<span class="c"># Use with caution, can really mess with Cask (thinks nothing is installed).
-</span><span class="c"></span><span class="nf">uninstall_brew</span><span class="o">:</span>
-	@ruby -e <span class="s2">&#34;</span><span class="nv">$$</span><span class="s2">(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)&#34;</span>
+<span style="color:#6272a4"># Use with caution, can really mess with Cask (thinks nothing is installed).
+</span><span style="color:#6272a4"></span><span style="color:#50fa7b">uninstall_brew</span><span style="color:#ff79c6">:</span>
+	@ruby -e <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$$</span><span style="color:#f1fa8c">(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)&#34;</span>
 
-<span class="nf">uninstall_packages</span><span class="o">:</span>
-	brew remove --force --ignore-dependencies <span class="k">$(</span>shell brew list<span class="k">)</span>
+<span style="color:#50fa7b">uninstall_packages</span><span style="color:#ff79c6">:</span>
+	brew remove --force --ignore-dependencies <span style="color:#ff79c6">$(</span>shell brew list<span style="color:#ff79c6">)</span>
 </code></pre></div>
 <p>Still with me? Great! <em>What is happening?</em></p>
 
@@ -431,9 +431,9 @@ update your <code>Makefile</code> with anything new.</li>
 helped to simplify things and make some of these install lists more
 re-usable.  For example, when upgrading to a new macOS, you should
 re-install your Homebrew packages:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ make uninstall_packages <span class="o">&amp;&amp;</span> make packages</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ make uninstall_packages <span style="color:#ff79c6">&amp;&amp;</span> make packages</code></pre></div>
 <p>Done!  Use multiple computers? Missing applications?</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ make cask</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ make cask</code></pre></div>
 <p>Done!</p>
 
 <h2 id="conclusion">Conclusion</h2>
