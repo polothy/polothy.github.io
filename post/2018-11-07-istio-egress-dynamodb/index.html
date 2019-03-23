@@ -64,7 +64,7 @@
   "description" : "Took a while to figure out how to properly configure Istio egress to allow a service to talk to DynamoDB. I didn&amp;rsquo;t find many up-to-date resources out there on the topic, so decided to share what worked for me.
 ",
   "inLanguage" : "en",
-  "wordCount": 704,
+  "wordCount": 576,
   "datePublished" : "2018-11-07T14:26:17",
   "dateModified" : "2018-11-07T14:26:17",
   "image" : "https://polothy.github.io/img/gopher-spirit-coffee.png",
@@ -240,7 +240,7 @@
   <i class="fas fa-calendar"></i>&nbsp;Posted on November 7, 2018
   
   
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;4&nbsp;minutes
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
   
   
   
@@ -277,17 +277,17 @@
 <h2 id="aws-session-in-the-service">AWS session in the service</h2>
 
 <p>To connect to DynamoDB, our AWS session looks like this (written in Go):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">sess, err <span style="color:#ff79c6">:=</span> session.<span style="color:#50fa7b">NewSession</span>(<span style="color:#ff79c6">&amp;</span>aws.Config{
-    Region:                        aws.<span style="color:#50fa7b">String</span>(endpoints.UsEast1RegionID),
-    CredentialsChainVerboseErrors: aws.<span style="color:#50fa7b">Bool</span>(<span style="color:#ff79c6">true</span>),
-    LogLevel:                      aws.<span style="color:#50fa7b">LogLevel</span>(aws.LogDebugWithHTTPBody),
-})
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">sess</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">session</span><span class="p">.</span><span class="nf">NewSession</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">aws</span><span class="p">.</span><span class="nx">Config</span><span class="p">{</span>
+    <span class="nx">Region</span><span class="p">:</span>                        <span class="nx">aws</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="nx">endpoints</span><span class="p">.</span><span class="nx">UsEast1RegionID</span><span class="p">),</span>
+    <span class="nx">CredentialsChainVerboseErrors</span><span class="p">:</span> <span class="nx">aws</span><span class="p">.</span><span class="nf">Bool</span><span class="p">(</span><span class="kc">true</span><span class="p">),</span>
+    <span class="nx">LogLevel</span><span class="p">:</span>                      <span class="nx">aws</span><span class="p">.</span><span class="nf">LogLevel</span><span class="p">(</span><span class="nx">aws</span><span class="p">.</span><span class="nx">LogDebugWithHTTPBody</span><span class="p">),</span>
+<span class="p">})</span>
 
-<span style="color:#ff79c6">if</span> err <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">nil</span> {
-    <span style="color:#ff79c6">return</span> errors.<span style="color:#50fa7b">New</span>(fmt.<span style="color:#50fa7b">Sprintf</span>(<span style="color:#f1fa8c">&#34;Failed to create AWS session with error %s&#34;</span>, err.<span style="color:#50fa7b">Error</span>()))
-}
+<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;Failed to create AWS session with error %s&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">()))</span>
+<span class="p">}</span>
 
-<span style="color:#ff79c6">//</span> Continue with your code to interact with DynamoDB</code></pre></div>
+<span class="o">//</span> <span class="nx">Continue</span> <span class="nx">with</span> <span class="nx">your</span> <span class="nx">code</span> <span class="nx">to</span> <span class="nx">interact</span> <span class="nx">with</span> <span class="nx">DynamoDB</span></code></pre></div>
 <p>So, nothing fancy here, but let&rsquo;s point out a couple of things:</p>
 
 <ul>
@@ -302,89 +302,89 @@
 <h2 id="egress-to-metadata-server">Egress to metadata server</h2>
 
 <p>Since we are using IAM to authenticate, the AWS SDK will send a request to <code>169.254.169.254</code> which is the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">metadata server</a>.  Envoy will block this, we unblock it with some good old YAML:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">apiVersion: networking.istio.io/v1alpha3
-kind: ServiceEntry
-metadata:
-  name: aws-metadata-service-entry
-spec:
-  hosts:
-  - <span style="color:#bd93f9">169.254</span>.<span style="color:#bd93f9">169.254</span>
-  ports:
-  - number: <span style="color:#bd93f9">80</span>
-    name: http
-    protocol: HTTP
-  resolution: DNS
-  location: MESH_EXTERNAL</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">apiVersion<span class="p">:</span><span class="w"> </span>networking.istio.io/v1alpha3<span class="w">
+</span><span class="w"></span>kind<span class="p">:</span><span class="w"> </span>ServiceEntry<span class="w">
+</span><span class="w"></span>metadata<span class="p">:</span><span class="w">
+</span><span class="w">  </span>name<span class="p">:</span><span class="w"> </span>aws-metadata-service-entry<span class="w">
+</span><span class="w"></span>spec<span class="p">:</span><span class="w">
+</span><span class="w">  </span>hosts<span class="p">:</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span><span class="m">169.254</span>.<span class="m">169.254</span><span class="w">
+</span><span class="w">  </span>ports<span class="p">:</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>number<span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
+</span><span class="w">    </span>name<span class="p">:</span><span class="w"> </span>http<span class="w">
+</span><span class="w">    </span>protocol<span class="p">:</span><span class="w"> </span>HTTP<span class="w">
+</span><span class="w">  </span>resolution<span class="p">:</span><span class="w"> </span>DNS<span class="w">
+</span><span class="w">  </span>location<span class="p">:</span><span class="w"> </span>MESH_EXTERNAL</code></pre></div>
 <h2 id="egress-to-iam-service">Egress to IAM service</h2>
 
 <p>Again, since we are using IAM for authentication, the AWS SDK will also send a request to <code>sts.amazonaws.com</code> which is the IAM Service.  Let&rsquo;s allow this request too.  Note, this time it is HTTPS so we also need a <code>VirtualService</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">apiVersion: networking.istio.io/v1alpha3
-kind: ServiceEntry
-metadata:
-  name: aws-sts-service-entry
-spec:
-  hosts:
-  - sts.amazonaws.com
-  ports:
-  - number: <span style="color:#bd93f9">443</span>
-    name: https
-    protocol: HTTPS
-  resolution: DNS
-  location: MESH_EXTERNAL
----
-apiVersion: networking.istio.io/v1alpha3
-kind: VirtualService
-metadata:
-  name: aws-sts-virtual-service
-spec:
-  hosts:
-  - sts.amazonaws.com
-  tls:
-  - match:
-    - port: <span style="color:#bd93f9">443</span>
-      sni_hosts:
-      - sts.amazonaws.com
-    route:
-    - destination:
-        host: sts.amazonaws.com
-        port:
-          number: <span style="color:#bd93f9">443</span>
-      weight: <span style="color:#bd93f9">100</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">apiVersion<span class="p">:</span><span class="w"> </span>networking.istio.io/v1alpha3<span class="w">
+</span><span class="w"></span>kind<span class="p">:</span><span class="w"> </span>ServiceEntry<span class="w">
+</span><span class="w"></span>metadata<span class="p">:</span><span class="w">
+</span><span class="w">  </span>name<span class="p">:</span><span class="w"> </span>aws-sts-service-entry<span class="w">
+</span><span class="w"></span>spec<span class="p">:</span><span class="w">
+</span><span class="w">  </span>hosts<span class="p">:</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>sts.amazonaws.com<span class="w">
+</span><span class="w">  </span>ports<span class="p">:</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>number<span class="p">:</span><span class="w"> </span><span class="m">443</span><span class="w">
+</span><span class="w">    </span>name<span class="p">:</span><span class="w"> </span>https<span class="w">
+</span><span class="w">    </span>protocol<span class="p">:</span><span class="w"> </span>HTTPS<span class="w">
+</span><span class="w">  </span>resolution<span class="p">:</span><span class="w"> </span>DNS<span class="w">
+</span><span class="w">  </span>location<span class="p">:</span><span class="w"> </span>MESH_EXTERNAL<span class="w">
+</span><span class="w"></span>---<span class="w">
+</span><span class="w"></span>apiVersion<span class="p">:</span><span class="w"> </span>networking.istio.io/v1alpha3<span class="w">
+</span><span class="w"></span>kind<span class="p">:</span><span class="w"> </span>VirtualService<span class="w">
+</span><span class="w"></span>metadata<span class="p">:</span><span class="w">
+</span><span class="w">  </span>name<span class="p">:</span><span class="w"> </span>aws-sts-virtual-service<span class="w">
+</span><span class="w"></span>spec<span class="p">:</span><span class="w">
+</span><span class="w">  </span>hosts<span class="p">:</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>sts.amazonaws.com<span class="w">
+</span><span class="w">  </span>tls<span class="p">:</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>match<span class="p">:</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>port<span class="p">:</span><span class="w"> </span><span class="m">443</span><span class="w">
+</span><span class="w">      </span>sni_hosts<span class="p">:</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>sts.amazonaws.com<span class="w">
+</span><span class="w">    </span>route<span class="p">:</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>destination<span class="p">:</span><span class="w">
+</span><span class="w">        </span>host<span class="p">:</span><span class="w"> </span>sts.amazonaws.com<span class="w">
+</span><span class="w">        </span>port<span class="p">:</span><span class="w">
+</span><span class="w">          </span>number<span class="p">:</span><span class="w"> </span><span class="m">443</span><span class="w">
+</span><span class="w">      </span>weight<span class="p">:</span><span class="w"> </span><span class="m">100</span></code></pre></div>
 <h2 id="egress-to-dynamodb">Egress to DynamoDB</h2>
 
 <p>Finally, what we actually want to do, interact with DynamoDB.  Allow this request with the following (modify AWS region as necessary):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">apiVersion: networking.istio.io/v1alpha3
-kind: ServiceEntry
-metadata:
-  name: dynamodb-service-entry
-spec:
-  hosts:
-  - dynamodb.us-east-<span style="color:#bd93f9">1.</span>amazonaws.com
-  ports:
-  - number: <span style="color:#bd93f9">443</span>
-    name: https
-    protocol: HTTPS
-  resolution: DNS
-  location: MESH_EXTERNAL
----
-apiVersion: networking.istio.io/v1alpha3
-kind: VirtualService
-metadata:
-  name: aws-dynamodb-virtual-service
-spec:
-  hosts:
-  - dynamodb.us-east-<span style="color:#bd93f9">1.</span>amazonaws.com
-  tls:
-  - match:
-    - port: <span style="color:#bd93f9">443</span>
-      sni_hosts:
-      - dynamodb.us-east-<span style="color:#bd93f9">1.</span>amazonaws.com
-    route:
-    - destination:
-        host: dynamodb.us-east-<span style="color:#bd93f9">1.</span>amazonaws.com
-        port:
-          number: <span style="color:#bd93f9">443</span>
-      weight: <span style="color:#bd93f9">100</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">apiVersion<span class="p">:</span><span class="w"> </span>networking.istio.io/v1alpha3<span class="w">
+</span><span class="w"></span>kind<span class="p">:</span><span class="w"> </span>ServiceEntry<span class="w">
+</span><span class="w"></span>metadata<span class="p">:</span><span class="w">
+</span><span class="w">  </span>name<span class="p">:</span><span class="w"> </span>dynamodb-service-entry<span class="w">
+</span><span class="w"></span>spec<span class="p">:</span><span class="w">
+</span><span class="w">  </span>hosts<span class="p">:</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>dynamodb.us-east-<span class="m">1.</span>amazonaws.com<span class="w">
+</span><span class="w">  </span>ports<span class="p">:</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>number<span class="p">:</span><span class="w"> </span><span class="m">443</span><span class="w">
+</span><span class="w">    </span>name<span class="p">:</span><span class="w"> </span>https<span class="w">
+</span><span class="w">    </span>protocol<span class="p">:</span><span class="w"> </span>HTTPS<span class="w">
+</span><span class="w">  </span>resolution<span class="p">:</span><span class="w"> </span>DNS<span class="w">
+</span><span class="w">  </span>location<span class="p">:</span><span class="w"> </span>MESH_EXTERNAL<span class="w">
+</span><span class="w"></span>---<span class="w">
+</span><span class="w"></span>apiVersion<span class="p">:</span><span class="w"> </span>networking.istio.io/v1alpha3<span class="w">
+</span><span class="w"></span>kind<span class="p">:</span><span class="w"> </span>VirtualService<span class="w">
+</span><span class="w"></span>metadata<span class="p">:</span><span class="w">
+</span><span class="w">  </span>name<span class="p">:</span><span class="w"> </span>aws-dynamodb-virtual-service<span class="w">
+</span><span class="w"></span>spec<span class="p">:</span><span class="w">
+</span><span class="w">  </span>hosts<span class="p">:</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>dynamodb.us-east-<span class="m">1.</span>amazonaws.com<span class="w">
+</span><span class="w">  </span>tls<span class="p">:</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>match<span class="p">:</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>port<span class="p">:</span><span class="w"> </span><span class="m">443</span><span class="w">
+</span><span class="w">      </span>sni_hosts<span class="p">:</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>dynamodb.us-east-<span class="m">1.</span>amazonaws.com<span class="w">
+</span><span class="w">    </span>route<span class="p">:</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>destination<span class="p">:</span><span class="w">
+</span><span class="w">        </span>host<span class="p">:</span><span class="w"> </span>dynamodb.us-east-<span class="m">1.</span>amazonaws.com<span class="w">
+</span><span class="w">        </span>port<span class="p">:</span><span class="w">
+</span><span class="w">          </span>number<span class="p">:</span><span class="w"> </span><span class="m">443</span><span class="w">
+</span><span class="w">      </span>weight<span class="p">:</span><span class="w"> </span><span class="m">100</span></code></pre></div>
 <h2 id="conclusion">Conclusion</h2>
 
 <p>After those definitions are deployed to your cluster, your service should now be allowed to talk to the necessary servers in order to authenticate using IAM and to interact with DynamoDB.</p>

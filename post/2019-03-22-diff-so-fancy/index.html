@@ -272,70 +272,70 @@ to make <code>git diff</code> more readable. Err&hellip; more <em>fancy</em>!</p
 <p>Install and usage is pretty easy.  Just <code>brew install diff-so-fancy</code> to install
 and then you can configure <code>git</code> to use it.  If you want to go all in, use the
 official method:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git config --global core.pager <span style="color:#f1fa8c">&#34;diff-so-fancy | less --tabs=4 -RFX&#34;</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">git config --global core.pager <span class="s2">&#34;diff-so-fancy | less --tabs=4 -RFX&#34;</span></code></pre></div>
 <p>For me, I just enabled it for <code>git diff</code> and <code>git show</code> by adding the following
 to my <code>.gitconfig</code> file:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-.gitconfig" data-lang=".gitconfig"><span style="color:#ff79c6">[pager]</span>
-	<span style="color:#50fa7b">diff</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">diff-so-fancy | less --tabs=4 -RFX
-</span><span style="color:#f1fa8c">	show = diff-so-fancy | less --tabs=4 -RFX</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-.gitconfig" data-lang=".gitconfig"><span class="k">[pager]</span>
+	<span class="na">diff</span> <span class="o">=</span> <span class="s">diff-so-fancy | less --tabs=4 -RFX
+</span><span class="s">	show = diff-so-fancy | less --tabs=4 -RFX</span></code></pre></div>
 <p>Also in the install, they recommend adding some colors to the <code>git diff</code> output.
 I already had a lot set, so mine ended up looking like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-.gitconfig" data-lang=".gitconfig"><span style="color:#ff79c6">[color]</span>
-  <span style="color:#50fa7b">pager</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">true
-</span><span style="color:#f1fa8c">  ui = auto
-</span><span style="color:#f1fa8c">  status = auto
-</span><span style="color:#f1fa8c">  diff = auto
-</span><span style="color:#f1fa8c">  branch = auto
-</span><span style="color:#f1fa8c">  showBranch = auto
-</span><span style="color:#f1fa8c">  interactive = auto
-</span><span style="color:#f1fa8c">  grep = auto</span>
-<span style="color:#ff79c6">[color &#34;status&#34;]</span>
-  <span style="color:#50fa7b">header</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">black bold
-</span><span style="color:#f1fa8c">  branch = cyan
-</span><span style="color:#f1fa8c">  nobranch = red
-</span><span style="color:#f1fa8c">  unmerged = red
-</span><span style="color:#f1fa8c">  untracked = magenta
-</span><span style="color:#f1fa8c">  added = green
-</span><span style="color:#f1fa8c">  changed = yellow bold</span>
-<span style="color:#ff79c6">[color &#34;diff&#34;]</span>
-  <span style="color:#50fa7b">meta</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">magenta
-</span><span style="color:#f1fa8c">  frag = black bold
-</span><span style="color:#f1fa8c">  func = blue
-</span><span style="color:#f1fa8c">  old = red strike
-</span><span style="color:#f1fa8c">  new = green
-</span><span style="color:#f1fa8c">  commit = cyan
-</span><span style="color:#f1fa8c">  whitespace = red
-</span><span style="color:#f1fa8c">  context = normal dim</span>
-<span style="color:#ff79c6">[color &#34;branch&#34;]</span>
-  <span style="color:#50fa7b">current</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">cyan
-</span><span style="color:#f1fa8c">  local = blue
-</span><span style="color:#f1fa8c">  remote = magenta
-</span><span style="color:#f1fa8c">  upstream = magenta
-</span><span style="color:#f1fa8c">  plain = normal</span>
-<span style="color:#ff79c6">[color &#34;decorate&#34;]</span>
-  <span style="color:#50fa7b">branch</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">green bold
-</span><span style="color:#f1fa8c">  remoteBranch = magenta bold
-</span><span style="color:#f1fa8c">  tag = magenta bold
-</span><span style="color:#f1fa8c">  stash = cyan
-</span><span style="color:#f1fa8c">  HEAD = cyan bold</span>
-<span style="color:#ff79c6">[color &#34;interactive&#34;]</span>
-  <span style="color:#50fa7b">prompt</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">red
-</span><span style="color:#f1fa8c">  header = red bold
-</span><span style="color:#f1fa8c">  error = red
-</span><span style="color:#f1fa8c">  help = black bold</span>
-<span style="color:#ff79c6">[color &#34;grep&#34;]</span>
-  <span style="color:#50fa7b">context</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">normal
-</span><span style="color:#f1fa8c">  match = green
-</span><span style="color:#f1fa8c">  filename = blue
-</span><span style="color:#f1fa8c">  function = blue
-</span><span style="color:#f1fa8c">  selected = normal
-</span><span style="color:#f1fa8c">  separator = cyan bold
-</span><span style="color:#f1fa8c">  linenumber = yellow</span>
-<span style="color:#ff79c6">[color &#34;diff-highlight&#34;]</span>
-  <span style="color:#50fa7b">oldNormal</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">red
-</span><span style="color:#f1fa8c">  oldHighlight = red 52
-</span><span style="color:#f1fa8c">  newNormal = green
-</span><span style="color:#f1fa8c">  newHighlight = green 22</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-.gitconfig" data-lang=".gitconfig"><span class="k">[color]</span>
+  <span class="na">pager</span> <span class="o">=</span> <span class="s">true
+</span><span class="s">  ui = auto
+</span><span class="s">  status = auto
+</span><span class="s">  diff = auto
+</span><span class="s">  branch = auto
+</span><span class="s">  showBranch = auto
+</span><span class="s">  interactive = auto
+</span><span class="s">  grep = auto</span>
+<span class="k">[color &#34;status&#34;]</span>
+  <span class="na">header</span> <span class="o">=</span> <span class="s">black bold
+</span><span class="s">  branch = cyan
+</span><span class="s">  nobranch = red
+</span><span class="s">  unmerged = red
+</span><span class="s">  untracked = magenta
+</span><span class="s">  added = green
+</span><span class="s">  changed = yellow bold</span>
+<span class="k">[color &#34;diff&#34;]</span>
+  <span class="na">meta</span> <span class="o">=</span> <span class="s">magenta
+</span><span class="s">  frag = black bold
+</span><span class="s">  func = blue
+</span><span class="s">  old = red strike
+</span><span class="s">  new = green
+</span><span class="s">  commit = cyan
+</span><span class="s">  whitespace = red
+</span><span class="s">  context = normal dim</span>
+<span class="k">[color &#34;branch&#34;]</span>
+  <span class="na">current</span> <span class="o">=</span> <span class="s">cyan
+</span><span class="s">  local = blue
+</span><span class="s">  remote = magenta
+</span><span class="s">  upstream = magenta
+</span><span class="s">  plain = normal</span>
+<span class="k">[color &#34;decorate&#34;]</span>
+  <span class="na">branch</span> <span class="o">=</span> <span class="s">green bold
+</span><span class="s">  remoteBranch = magenta bold
+</span><span class="s">  tag = magenta bold
+</span><span class="s">  stash = cyan
+</span><span class="s">  HEAD = cyan bold</span>
+<span class="k">[color &#34;interactive&#34;]</span>
+  <span class="na">prompt</span> <span class="o">=</span> <span class="s">red
+</span><span class="s">  header = red bold
+</span><span class="s">  error = red
+</span><span class="s">  help = black bold</span>
+<span class="k">[color &#34;grep&#34;]</span>
+  <span class="na">context</span> <span class="o">=</span> <span class="s">normal
+</span><span class="s">  match = green
+</span><span class="s">  filename = blue
+</span><span class="s">  function = blue
+</span><span class="s">  selected = normal
+</span><span class="s">  separator = cyan bold
+</span><span class="s">  linenumber = yellow</span>
+<span class="k">[color &#34;diff-highlight&#34;]</span>
+  <span class="na">oldNormal</span> <span class="o">=</span> <span class="s">red
+</span><span class="s">  oldHighlight = red 52
+</span><span class="s">  newNormal = green
+</span><span class="s">  newHighlight = green 22</span></code></pre></div>
 <p>And that&rsquo;s it! Now you are <em>fancy</em>!  One thing I worried about when I was setting
 this up is if <code>diff-so-fancy</code> would break things when I tried to save a diff to
 a file for a patch or somehow break other tools, like <code>tig</code>.  But, no need to

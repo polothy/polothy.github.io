@@ -276,18 +276,18 @@ of current context and namespace, <code>kube-ps1</code> to the rescue!</p>
 before running commands, I needed something to help me out. I went searching and
 found <a href="https://github.com/jonmosco/kube-ps1" title="kube-ps1">kube-ps1</a>. It is very easy to install (<code>brew install kube-ps1</code>). I was able
 to set it to <code>$RPROMPT</code> env variable so it displays on the right in ZSH:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#6272a4"># Source kube-ps1.</span>
-<span style="color:#ff79c6">if</span> <span style="color:#ff79c6">[[</span> -s <span style="color:#f1fa8c">&#34;/usr/local/opt/kube-ps1/share/kube-ps1.sh&#34;</span> <span style="color:#ff79c6">]]</span>; <span style="color:#ff79c6">then</span>
-    <span style="color:#8be9fd;font-style:italic">source</span> <span style="color:#f1fa8c">&#34;/usr/local/opt/kube-ps1/share/kube-ps1.sh&#34;</span>
-    <span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">RPROMPT</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;$(kube_ps1)&#39;</span>
-<span style="color:#ff79c6">fi</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># Source kube-ps1.</span>
+<span class="k">if</span> <span class="o">[[</span> -s <span class="s2">&#34;/usr/local/opt/kube-ps1/share/kube-ps1.sh&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">source</span> <span class="s2">&#34;/usr/local/opt/kube-ps1/share/kube-ps1.sh&#34;</span>
+    <span class="nb">export</span> <span class="nv">RPROMPT</span><span class="o">=</span><span class="s1">&#39;$(kube_ps1)&#39;</span>
+<span class="k">fi</span></code></pre></div>
 <p>Then I, <em>of course</em>, customized the look a little:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#6272a4"># kube-ps1 configs.</span>
-<span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">KUBE_PS1_PREFIX</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;&#39;</span>
-<span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">KUBE_PS1_SEPARATOR</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;&#39;</span>
-<span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">KUBE_PS1_SUFFIX</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;&#39;</span>
-<span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">KUBE_PS1_NS_COLOR</span><span style="color:#ff79c6">=</span>blue
-<span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">KUBE_PS1_CTX_COLOR</span><span style="color:#ff79c6">=</span>magenta</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># kube-ps1 configs.</span>
+<span class="nb">export</span> <span class="nv">KUBE_PS1_PREFIX</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
+<span class="nb">export</span> <span class="nv">KUBE_PS1_SEPARATOR</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
+<span class="nb">export</span> <span class="nv">KUBE_PS1_SUFFIX</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
+<span class="nb">export</span> <span class="nv">KUBE_PS1_NS_COLOR</span><span class="o">=</span>blue
+<span class="nb">export</span> <span class="nv">KUBE_PS1_CTX_COLOR</span><span class="o">=</span>magenta</code></pre></div>
 <p>Last thing I'll mention is that <code>kube-ps1</code> comes with two nifty commands to
 toggle the prompt. You can use <code>kubeoff</code> to flip it off for your current
 session. Then use <code>kubeon</code> to flip it back on. Either one takes a <code>-g</code> flag
