@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://polothy.github.io/post/2019-03-22-diff-so-fancy/</loc>
+    <lastmod>2019-03-22T20:42:16-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://polothy.github.io/post/2019-03-18-bat/</loc>
     <lastmod>2019-03-18T19:30:54-07:00</lastmod>
   </url>
@@ -54,7 +59,7 @@
   
   <url>
     <loc>https://polothy.github.io/tags/awesome-cli/</loc>
-    <lastmod>2019-03-18T19:30:54-07:00</lastmod>
+    <lastmod>2019-03-22T20:42:16-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -66,7 +71,7 @@
   
   <url>
     <loc>https://polothy.github.io/</loc>
-    <lastmod>2019-03-18T19:30:54-07:00</lastmod>
+    <lastmod>2019-03-22T20:42:16-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -90,6 +95,12 @@
   <url>
     <loc>https://polothy.github.io/tags/emacs/</loc>
     <lastmod>2019-03-14T19:29:23-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://polothy.github.io/tags/git/</loc>
+    <lastmod>2019-03-22T20:42:16-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -131,7 +142,7 @@
   
   <url>
     <loc>https://polothy.github.io/post/</loc>
-    <lastmod>2019-03-18T19:30:54-07:00</lastmod>
+    <lastmod>2019-03-22T20:42:16-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -149,7 +160,7 @@
   
   <url>
     <loc>https://polothy.github.io/tags/</loc>
-    <lastmod>2019-03-18T19:30:54-07:00</lastmod>
+    <lastmod>2019-03-22T20:42:16-07:00</lastmod>
     <priority>0</priority>
   </url>
   
