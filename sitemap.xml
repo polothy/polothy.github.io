@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://polothy.github.io/post/2019-04-13-testing-gorrilla-mux-handlers/</loc>
+    <lastmod>2019-04-13T15:11:52-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://polothy.github.io/post/2019-03-22-diff-so-fancy/</loc>
     <lastmod>2019-03-22T20:42:16-07:00</lastmod>
   </url>
@@ -71,7 +76,7 @@
   
   <url>
     <loc>https://polothy.github.io/</loc>
-    <lastmod>2019-03-22T20:42:16-07:00</lastmod>
+    <lastmod>2019-04-13T15:11:52-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -101,6 +106,12 @@
   <url>
     <loc>https://polothy.github.io/tags/git/</loc>
     <lastmod>2019-03-22T20:42:16-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://polothy.github.io/tags/go/</loc>
+    <lastmod>2019-04-13T15:11:52-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -142,7 +153,7 @@
   
   <url>
     <loc>https://polothy.github.io/post/</loc>
-    <lastmod>2019-03-22T20:42:16-07:00</lastmod>
+    <lastmod>2019-04-13T15:11:52-07:00</lastmod>
     <priority>0</priority>
   </url>
   

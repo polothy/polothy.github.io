@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Go on Blog</title>
+    <link>https://polothy.github.io/tags/go/</link>
+    <description>Recent content in Go on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 13 Apr 2019 15:11:52 -0700</lastBuildDate>
+    
+	<atom:link href="https://polothy.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Testing gorilla/mux handlers</title>
+      <link>https://polothy.github.io/post/2019-04-13-testing-gorrilla-mux-handlers/</link>
+      <pubDate>Sat, 13 Apr 2019 15:11:52 -0700</pubDate>
+      
+      <guid>https://polothy.github.io/post/2019-04-13-testing-gorrilla-mux-handlers/</guid>
+      <description>&lt;p&gt;Currently working on a prototype microservice and to get started quickly I
+decided to use &lt;a href=&#34;https://github.com/gorilla/mux&#34;&gt;gorilla/mux&lt;/a&gt; as my router
+because of its low barrier of entry and plenty of resources out there on it.
+One thing that has bothered me before when I have used &lt;code&gt;mux&lt;/code&gt; was how to go about
+testing the HTTP handlers. Discovered a nice way to do it.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
