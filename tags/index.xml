@@ -6,67 +6,49 @@
     <description>Recent content in Tags on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 22 Mar 2019 20:42:16 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 10 Aug 2019 10:52:43 -0700</lastBuildDate>
     
 	<atom:link href="https://polothy.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Awesome Cli</title>
+      <title>awesome-cli</title>
       <link>https://polothy.github.io/tags/awesome-cli/</link>
-      <pubDate>Fri, 22 Mar 2019 20:42:16 -0700</pubDate>
+      <pubDate>Sat, 10 Aug 2019 10:52:43 -0700</pubDate>
       
       <guid>https://polothy.github.io/tags/awesome-cli/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Aws</title>
-      <link>https://polothy.github.io/tags/aws/</link>
-      <pubDate>Mon, 17 Dec 2018 20:22:44 -0800</pubDate>
+      <title>fzf</title>
+      <link>https://polothy.github.io/tags/fzf/</link>
+      <pubDate>Sat, 10 Aug 2019 10:52:43 -0700</pubDate>
       
-      <guid>https://polothy.github.io/tags/aws/</guid>
+      <guid>https://polothy.github.io/tags/fzf/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Dotfiles</title>
-      <link>https://polothy.github.io/tags/dotfiles/</link>
-      <pubDate>Tue, 09 Oct 2018 21:15:27 -0700</pubDate>
-      
-      <guid>https://polothy.github.io/tags/dotfiles/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Dynamodb</title>
-      <link>https://polothy.github.io/tags/dynamodb/</link>
-      <pubDate>Wed, 07 Nov 2018 14:26:17 -0800</pubDate>
-      
-      <guid>https://polothy.github.io/tags/dynamodb/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Emacs</title>
-      <link>https://polothy.github.io/tags/emacs/</link>
-      <pubDate>Thu, 14 Mar 2019 19:29:23 -0700</pubDate>
-      
-      <guid>https://polothy.github.io/tags/emacs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Git</title>
+      <title>git</title>
       <link>https://polothy.github.io/tags/git/</link>
-      <pubDate>Fri, 22 Mar 2019 20:42:16 -0700</pubDate>
+      <pubDate>Sat, 10 Aug 2019 10:52:43 -0700</pubDate>
       
       <guid>https://polothy.github.io/tags/git/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Go</title>
+      <title>kubectl</title>
+      <link>https://polothy.github.io/tags/kubectl/</link>
+      <pubDate>Sat, 10 Aug 2019 10:52:43 -0700</pubDate>
+      
+      <guid>https://polothy.github.io/tags/kubectl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go</title>
       <link>https://polothy.github.io/tags/go/</link>
       <pubDate>Sat, 13 Apr 2019 15:11:52 -0700</pubDate>
       
@@ -75,52 +57,16 @@
     </item>
     
     <item>
-      <title>Homebrew</title>
-      <link>https://polothy.github.io/tags/homebrew/</link>
-      <pubDate>Tue, 09 Oct 2018 21:15:27 -0700</pubDate>
+      <title>emacs</title>
+      <link>https://polothy.github.io/tags/emacs/</link>
+      <pubDate>Thu, 14 Mar 2019 19:29:23 -0700</pubDate>
       
-      <guid>https://polothy.github.io/tags/homebrew/</guid>
+      <guid>https://polothy.github.io/tags/emacs/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Istio</title>
-      <link>https://polothy.github.io/tags/istio/</link>
-      <pubDate>Wed, 07 Nov 2018 20:59:04 -0800</pubDate>
-      
-      <guid>https://polothy.github.io/tags/istio/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Knative</title>
-      <link>https://polothy.github.io/tags/knative/</link>
-      <pubDate>Wed, 07 Nov 2018 20:59:04 -0800</pubDate>
-      
-      <guid>https://polothy.github.io/tags/knative/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Kubernetes</title>
-      <link>https://polothy.github.io/tags/kubernetes/</link>
-      <pubDate>Wed, 13 Mar 2019 20:49:08 -0700</pubDate>
-      
-      <guid>https://polothy.github.io/tags/kubernetes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Makefile</title>
-      <link>https://polothy.github.io/tags/makefile/</link>
-      <pubDate>Tue, 09 Oct 2018 21:15:27 -0700</pubDate>
-      
-      <guid>https://polothy.github.io/tags/makefile/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Orgmode</title>
+      <title>orgmode</title>
       <link>https://polothy.github.io/tags/orgmode/</link>
       <pubDate>Thu, 14 Mar 2019 19:29:23 -0700</pubDate>
       
@@ -129,16 +75,7 @@
     </item>
     
     <item>
-      <title>Reinvent</title>
-      <link>https://polothy.github.io/tags/reinvent/</link>
-      <pubDate>Mon, 17 Dec 2018 20:22:44 -0800</pubDate>
-      
-      <guid>https://polothy.github.io/tags/reinvent/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Spacemacs</title>
+      <title>spacemacs</title>
       <link>https://polothy.github.io/tags/spacemacs/</link>
       <pubDate>Thu, 14 Mar 2019 19:29:23 -0700</pubDate>
       
@@ -147,11 +84,92 @@
     </item>
     
     <item>
-      <title>Zsh</title>
+      <title>kubernetes</title>
+      <link>https://polothy.github.io/tags/kubernetes/</link>
+      <pubDate>Wed, 13 Mar 2019 20:49:08 -0700</pubDate>
+      
+      <guid>https://polothy.github.io/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>zsh</title>
       <link>https://polothy.github.io/tags/zsh/</link>
       <pubDate>Wed, 13 Mar 2019 20:49:08 -0700</pubDate>
       
       <guid>https://polothy.github.io/tags/zsh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>aws</title>
+      <link>https://polothy.github.io/tags/aws/</link>
+      <pubDate>Mon, 17 Dec 2018 20:22:44 -0800</pubDate>
+      
+      <guid>https://polothy.github.io/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reinvent</title>
+      <link>https://polothy.github.io/tags/reinvent/</link>
+      <pubDate>Mon, 17 Dec 2018 20:22:44 -0800</pubDate>
+      
+      <guid>https://polothy.github.io/tags/reinvent/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>istio</title>
+      <link>https://polothy.github.io/tags/istio/</link>
+      <pubDate>Wed, 07 Nov 2018 20:59:04 -0800</pubDate>
+      
+      <guid>https://polothy.github.io/tags/istio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>knative</title>
+      <link>https://polothy.github.io/tags/knative/</link>
+      <pubDate>Wed, 07 Nov 2018 20:59:04 -0800</pubDate>
+      
+      <guid>https://polothy.github.io/tags/knative/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dynamodb</title>
+      <link>https://polothy.github.io/tags/dynamodb/</link>
+      <pubDate>Wed, 07 Nov 2018 14:26:17 -0800</pubDate>
+      
+      <guid>https://polothy.github.io/tags/dynamodb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dotfiles</title>
+      <link>https://polothy.github.io/tags/dotfiles/</link>
+      <pubDate>Tue, 09 Oct 2018 21:15:27 -0700</pubDate>
+      
+      <guid>https://polothy.github.io/tags/dotfiles/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>homebrew</title>
+      <link>https://polothy.github.io/tags/homebrew/</link>
+      <pubDate>Tue, 09 Oct 2018 21:15:27 -0700</pubDate>
+      
+      <guid>https://polothy.github.io/tags/homebrew/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>makefile</title>
+      <link>https://polothy.github.io/tags/makefile/</link>
+      <pubDate>Tue, 09 Oct 2018 21:15:27 -0700</pubDate>
+      
+      <guid>https://polothy.github.io/tags/makefile/</guid>
       <description></description>
     </item>
     

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>fzf - Blog</title>
+  <meta property="og:title" content="fzf" />
+  <meta name="twitter:title" content="fzf" />
+  <meta name="description" content="A general purpose command-line fuzzy finder.">
+  <meta property="og:description" content="A general purpose command-line fuzzy finder.">
+  <meta name="twitter:description" content="A general purpose command-line fuzzy finder.">
+  <meta name="author" content="Mark Nielsen"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Blog",
+    
+    "url": "https:\/\/polothy.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/polothy.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/polothy.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/polothy.github.io\/post\/2019-08-10-fzf\/",
+          "name": "Fzf"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Mark Nielsen"
+  },
+  "headline": "fzf",
+  "description" : "A general purpose command-line fuzzy finder.\n",
+  "inLanguage" : "en",
+  "wordCount":  439 ,
+  "datePublished" : "2019-08-10T10:52:43",
+  "dateModified" : "2019-08-10T10:52:43",
+  "image" : "https:\/\/polothy.github.io\/img\/gopher-spirit-coffee.png",
+  "keywords" : [ "awesome-cli, git, kubectl, fzf" ],
+  "mainEntityOfPage" : "https:\/\/polothy.github.io\/post\/2019-08-10-fzf\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/polothy.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/polothy.github.io\/img\/gopher-spirit-coffee.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="fzf" />
+<meta property="og:description" content="A general purpose command-line fuzzy finder.">
+<meta property="og:image" content="https://polothy.github.io/img/gopher-spirit-coffee.png" />
+<meta property="og:url" content="https://polothy.github.io/post/2019-08-10-fzf/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Blog" />
+
+  <meta name="twitter:title" content="fzf" />
+  <meta name="twitter:description" content="A general purpose command-line fuzzy finder.">
+  <meta name="twitter:image" content="https://polothy.github.io/img/gopher-spirit-coffee.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@polothy" />
+  <meta name="twitter:creator" content="@polothy" />
+  <meta property="og:image" content="https://polothy.github.io/img/gopher-spirit-coffee.png" />
+  <meta name="twitter:image" content="https://polothy.github.io/img/gopher-spirit-coffee.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@polothy" />
+  <meta name="twitter:creator" content="@polothy" />
+  <meta property="og:url" content="https://polothy.github.io/post/2019-08-10-fzf/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Blog" />
+
+  <meta name="generator" content="Hugo 0.56.3" />
+  <link rel="alternate" href="https://polothy.github.io/index.xml" type="application/rss+xml" title="Blog"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://polothy.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" /><link rel="stylesheet" href="https://polothy.github.io/css/syntax.css" /><link rel="stylesheet" href="https://polothy.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+<link rel="stylesheet" href="https://polothy.github.io/css/site.css" />
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://polothy.github.io/">Blog</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Blog" href="https://polothy.github.io/">
+            <img class="avatar-img" src="https://polothy.github.io/img/gopher-spirit-coffee.png" alt="Blog" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>fzf</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on August 10, 2019
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
+  
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Mark Nielsen
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>A general purpose command-line fuzzy finder.</p>
+
+<p>It took a while for <a href="https://github.com/junegunn/fzf">fzf</a> to click for me. A
+lot of folks excitedly wrote about it and it certainly looked neat, but I was
+initially finding it hard to see the true productivity value it could bring to
+my CLI life. But, I decided to give it a try and I&rsquo;m glad that I did.</p>
+
+<h2 id="setup">Setup</h2>
+
+<p><a href="https://github.com/junegunn/fzf#installation">Install</a> is easy and there is a
+<code>brew</code> option as well. At time of writing, there is a second step to run an
+install.</p>
+
+<p>From there, you are off onto customization:</p>
+
+<ul>
+<li><a href="https://github.com/junegunn/fzf/wiki/Color-schemes">Color schemes</a>.</li>
+<li>Switch from <code>find</code> to <a href="https://github.com/sharkdp/fd">fd</a>.</li>
+<li>Discover <a href="https://github.com/junegunn/fzf/wiki/Related-projects">related projects</a>.</li>
+<li>And down the <a href="https://github.com/junegunn/fzf/wiki/Examples">rabbit hole</a>.</li>
+</ul>
+
+<h2 id="default-usage">Default usage</h2>
+
+<p>Out of the box, <code>fzf</code> comes with a lot of neat functionality. My <em>absolute
+favorite feature</em> is the <strong>history search</strong>. You hit <code>CTR-r</code> and then you can fuzzy
+find your entire CLI command history. This feature <em>alone</em> is enough for me to
+keep <code>fzf</code> forever! Countless times I have grabbed complex commands from my
+history that I knew were there, if I could just find them. Now I can!</p>
+
+<p>If you enabled the <a href="https://github.com/junegunn/fzf#fuzzy-completion-for-bash-and-zsh">completion
+feature</a>, you
+get some other nice goodies as well. For example, you can select a file by doing
+<code>vim **&lt;TAB&gt;</code> and then fuzzy select one or more files to edit. This one isn&rsquo;t
+always useful since some of my projects include a silly number of files. But, it
+is certainly handy when it works out and saves you from having to <code>TAB</code> down a
+directory structure to finally find the file. There are several other
+completions as well, the one for <code>kill</code> is also very nice.</p>
+
+<h2 id="going-beyond">Going beyond</h2>
+
+<p>There are many projects that integrate with <code>fzf</code>. Currently playing around with
+<a href="https://github.com/wfxr/forgit">forgit</a> which wraps some <code>git</code> commands with
+<code>fzf</code>. I especially like the file selector commands it has for adding, checking
+out or resetting files.</p>
+
+<p>The <a href="https://github.com/ahmetb/kubectx">kubectx</a> project also integrates with
+<code>fzf</code>. It is especially useful when you alias the commands to something shorter
+like:</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">alias</span> <span class="nv">kc</span><span class="o">=</span><span class="s1">&#39;kubectx&#39;</span>
+<span class="nb">alias</span> <span class="nv">kn</span><span class="o">=</span><span class="s1">&#39;kubens&#39;</span></code></pre></div>
+<p>I&rsquo;m currently exploring if I can work <code>fzf</code> into other parts of my <code>kubectl</code>
+workflow, but haven&rsquo;t nailed it down yet.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>There is a lot to discover with <code>fzf</code> and it is easy to get overwhelmed by the
+configuration or the fancy commands that you can construct with it. I suggest just
+installing it and using the default functionality first. If it is your cup of
+tea, then go nuts on extending it. I do think the right way to build off of
+<code>fzf</code> is with shell functions or aliases so you can nail down the functionality
+and make it really easy to invoke.</p>
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://polothy.github.io//tags/awesome-cli/">awesome-cli</a>&nbsp;
+            
+              <a href="https://polothy.github.io//tags/git/">git</a>&nbsp;
+            
+              <a href="https://polothy.github.io//tags/kubectl/">kubectl</a>&nbsp;
+            
+              <a href="https://polothy.github.io//tags/fzf/">fzf</a>&nbsp;
+            
+          </div>
+        
+
+        
+
+        
+          
+          
+          <h4 class="see-also">See also</h4>
+          <ul>
+          
+            <li><a href="/post/2019-03-22-diff-so-fancy/">diff-so-fancy</a></li>
+          
+            <li><a href="/post/2019-03-18-bat/">bat</a></li>
+          
+            <li><a href="/post/2019-03-13-kube-prompt/">Kube Prompt</a></li>
+          
+          </ul>
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://polothy.github.io/post/2019-04-13-testing-gorrilla-mux-handlers/" data-toggle="tooltip" data-placement="top" title="Testing gorilla/mux handlers">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/polothy" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/polothy" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/mark-nielsen-21a982162" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="https://polothy.github.io/">Mark Nielsen</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2019
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://polothy.github.io/">Blog</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.56.3</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://polothy.github.io/js/main.js"></script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://polothy.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
+

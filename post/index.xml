@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 13 Apr 2019 15:11:52 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 10 Aug 2019 10:52:43 -0700</lastBuildDate>
     
 	<atom:link href="https://polothy.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>fzf</title>
+      <link>https://polothy.github.io/post/2019-08-10-fzf/</link>
+      <pubDate>Sat, 10 Aug 2019 10:52:43 -0700</pubDate>
+      
+      <guid>https://polothy.github.io/post/2019-08-10-fzf/</guid>
+      <description>&lt;p&gt;A general purpose command-line fuzzy finder.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Testing gorilla/mux handlers</title>
@@ -57,8 +66,10 @@ testing the HTTP handlers. Discovered a nice way to do it.&lt;/p&gt;</descriptio
       <pubDate>Wed, 13 Mar 2019 20:49:08 -0700</pubDate>
       
       <guid>https://polothy.github.io/post/2019-03-13-kube-prompt/</guid>
-      <description>&lt;p&gt;Been switching between Kubernetes clusters a lot and needed a way to keep track
-of current context and namespace, &lt;code&gt;kube-ps1&lt;/code&gt; to the rescue!&lt;/p&gt;</description>
+      <description>&lt;p&gt;
+Been switching between Kubernetes clusters a lot and needed a way to keep track
+of current context and namespace, &lt;code class=&#34;verbatim&#34;&gt;kube-ps1&lt;/code&gt; to the rescue!
+&lt;/p&gt;</description>
     </item>
     
     <item>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Zsh on Blog</title>
+    <title>zsh on Blog</title>
     <link>https://polothy.github.io/tags/zsh/</link>
-    <description>Recent content in Zsh on Blog</description>
+    <description>Recent content in zsh on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 13 Mar 2019 20:49:08 -0700</lastBuildDate>
@@ -17,8 +17,10 @@
       <pubDate>Wed, 13 Mar 2019 20:49:08 -0700</pubDate>
       
       <guid>https://polothy.github.io/post/2019-03-13-kube-prompt/</guid>
-      <description>&lt;p&gt;Been switching between Kubernetes clusters a lot and needed a way to keep track
-of current context and namespace, &lt;code&gt;kube-ps1&lt;/code&gt; to the rescue!&lt;/p&gt;</description>
+      <description>&lt;p&gt;
+Been switching between Kubernetes clusters a lot and needed a way to keep track
+of current context and namespace, &lt;code class=&#34;verbatim&#34;&gt;kube-ps1&lt;/code&gt; to the rescue!
+&lt;/p&gt;</description>
     </item>
     
   </channel>

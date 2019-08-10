@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Makefile on Blog</title>
+    <title>makefile on Blog</title>
     <link>https://polothy.github.io/tags/makefile/</link>
-    <description>Recent content in Makefile on Blog</description>
+    <description>Recent content in makefile on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 09 Oct 2018 21:15:27 -0700</lastBuildDate>

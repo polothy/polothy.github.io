@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Awesome Cli on Blog</title>
+    <title>awesome-cli on Blog</title>
     <link>https://polothy.github.io/tags/awesome-cli/</link>
-    <description>Recent content in Awesome Cli on Blog</description>
+    <description>Recent content in awesome-cli on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 22 Mar 2019 20:42:16 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 10 Aug 2019 10:52:43 -0700</lastBuildDate>
     
 	<atom:link href="https://polothy.github.io/tags/awesome-cli/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>fzf</title>
+      <link>https://polothy.github.io/post/2019-08-10-fzf/</link>
+      <pubDate>Sat, 10 Aug 2019 10:52:43 -0700</pubDate>
+      
+      <guid>https://polothy.github.io/post/2019-08-10-fzf/</guid>
+      <description>&lt;p&gt;A general purpose command-line fuzzy finder.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>diff-so-fancy</title>
@@ -35,8 +44,10 @@
       <pubDate>Wed, 13 Mar 2019 20:49:08 -0700</pubDate>
       
       <guid>https://polothy.github.io/post/2019-03-13-kube-prompt/</guid>
-      <description>&lt;p&gt;Been switching between Kubernetes clusters a lot and needed a way to keep track
-of current context and namespace, &lt;code&gt;kube-ps1&lt;/code&gt; to the rescue!&lt;/p&gt;</description>
+      <description>&lt;p&gt;
+Been switching between Kubernetes clusters a lot and needed a way to keep track
+of current context and namespace, &lt;code class=&#34;verbatim&#34;&gt;kube-ps1&lt;/code&gt; to the rescue!
+&lt;/p&gt;</description>
     </item>
     
   </channel>

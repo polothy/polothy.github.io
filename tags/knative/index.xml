@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Knative on Blog</title>
+    <title>knative on Blog</title>
     <link>https://polothy.github.io/tags/knative/</link>
-    <description>Recent content in Knative on Blog</description>
+    <description>Recent content in knative on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 07 Nov 2018 20:59:04 -0800</lastBuildDate>
