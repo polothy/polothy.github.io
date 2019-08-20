@@ -6,24 +6,15 @@
     <description>Recent content in Tags on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 10 Aug 2019 10:52:43 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 19 Aug 2019 20:01:43 -0700</lastBuildDate>
     
 	<atom:link href="https://polothy.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>awesome-cli</title>
-      <link>https://polothy.github.io/tags/awesome-cli/</link>
-      <pubDate>Sat, 10 Aug 2019 10:52:43 -0700</pubDate>
-      
-      <guid>https://polothy.github.io/tags/awesome-cli/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>fzf</title>
       <link>https://polothy.github.io/tags/fzf/</link>
-      <pubDate>Sat, 10 Aug 2019 10:52:43 -0700</pubDate>
+      <pubDate>Mon, 19 Aug 2019 20:01:43 -0700</pubDate>
       
       <guid>https://polothy.github.io/tags/fzf/</guid>
       <description></description>
@@ -32,9 +23,18 @@
     <item>
       <title>git</title>
       <link>https://polothy.github.io/tags/git/</link>
-      <pubDate>Sat, 10 Aug 2019 10:52:43 -0700</pubDate>
+      <pubDate>Mon, 19 Aug 2019 20:01:43 -0700</pubDate>
       
       <guid>https://polothy.github.io/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>awesome-cli</title>
+      <link>https://polothy.github.io/tags/awesome-cli/</link>
+      <pubDate>Sat, 10 Aug 2019 10:52:43 -0700</pubDate>
+      
+      <guid>https://polothy.github.io/tags/awesome-cli/</guid>
       <description></description>
     </item>
     

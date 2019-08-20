@@ -7,12 +7,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>fzf - Blog</title>
-  <meta property="og:title" content="fzf" />
-  <meta name="twitter:title" content="fzf" />
-  <meta name="description" content="A general purpose command-line fuzzy finder.">
-  <meta property="og:description" content="A general purpose command-line fuzzy finder.">
-  <meta name="twitter:description" content="A general purpose command-line fuzzy finder.">
+  <title>Fuzzy git checkout - Blog</title>
+  <meta property="og:title" content="Fuzzy git checkout" />
+  <meta name="twitter:title" content="Fuzzy git checkout" />
+  <meta name="description" content="Using fzf for git checkout.">
+  <meta property="og:description" content="Using fzf for git checkout.">
+  <meta name="twitter:description" content="Using fzf for git checkout.">
   <meta name="author" content="Mark Nielsen"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -48,8 +48,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/polothy.github.io\/post\/2019-08-10-fzf\/",
-          "name": "Fzf"
+          "@id": "https:\/\/polothy.github.io\/post\/2019-08-19-fzf-git-checkout\/",
+          "name": "Fuzzy git checkout"
         }
     }]
 }
@@ -60,15 +60,15 @@
   "author": {
     "name" : "Mark Nielsen"
   },
-  "headline": "fzf",
-  "description" : "A general purpose command-line fuzzy finder.\n",
+  "headline": "Fuzzy git checkout",
+  "description" : "Using fzf for git checkout.\n",
   "inLanguage" : "en",
-  "wordCount":  439 ,
-  "datePublished" : "2019-08-10T10:52:43",
-  "dateModified" : "2019-08-10T10:52:43",
+  "wordCount":  628 ,
+  "datePublished" : "2019-08-19T20:01:43",
+  "dateModified" : "2019-08-19T20:01:43",
   "image" : "https:\/\/polothy.github.io\/img\/gopher-spirit-coffee.png",
-  "keywords" : [ "awesome-cli, git, kubectl, fzf" ],
-  "mainEntityOfPage" : "https:\/\/polothy.github.io\/post\/2019-08-10-fzf\/",
+  "keywords" : [ "fzf, git" ],
+  "mainEntityOfPage" : "https:\/\/polothy.github.io\/post\/2019-08-19-fzf-git-checkout\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/polothy.github.io\/",
@@ -82,15 +82,15 @@
 }
 </script>
 
-<meta property="og:title" content="fzf" />
-<meta property="og:description" content="A general purpose command-line fuzzy finder.">
+<meta property="og:title" content="Fuzzy git checkout" />
+<meta property="og:description" content="Using fzf for git checkout.">
 <meta property="og:image" content="https://polothy.github.io/img/gopher-spirit-coffee.png" />
-<meta property="og:url" content="https://polothy.github.io/post/2019-08-10-fzf/" />
+<meta property="og:url" content="https://polothy.github.io/post/2019-08-19-fzf-git-checkout/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Blog" />
 
-  <meta name="twitter:title" content="fzf" />
-  <meta name="twitter:description" content="A general purpose command-line fuzzy finder.">
+  <meta name="twitter:title" content="Fuzzy git checkout" />
+  <meta name="twitter:description" content="Using fzf for git checkout.">
   <meta name="twitter:image" content="https://polothy.github.io/img/gopher-spirit-coffee.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@polothy" />
@@ -100,7 +100,7 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@polothy" />
   <meta name="twitter:creator" content="@polothy" />
-  <meta property="og:url" content="https://polothy.github.io/post/2019-08-10-fzf/" />
+  <meta property="og:url" content="https://polothy.github.io/post/2019-08-19-fzf-git-checkout/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Blog" />
 
@@ -227,7 +227,7 @@
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>fzf</h1>
+                <h1>Fuzzy git checkout</h1>
               
               
               
@@ -235,7 +235,7 @@
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on August 10, 2019
+  <i class="fas fa-calendar"></i>&nbsp;Posted on August 19, 2019
   
   
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
@@ -262,79 +262,108 @@
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>A general purpose command-line fuzzy finder.</p>
+        <p>Using <code>fzf</code> for <code>git checkout</code>.</p>
 
-<p>It took a while for <a href="https://github.com/junegunn/fzf">fzf</a> to click for me. A
-lot of folks excitedly wrote about it and it certainly looked neat, but I was
-initially finding it hard to see the true productivity value it could bring to
-my CLI life. But, I decided to give it a try and I&rsquo;m glad that I did.</p>
+<p>First things first, let&rsquo;s see the goods!</p>
 
-<h2 id="setup">Setup</h2>
+<p><img src="/img/fzf-git-checkout-demo.png" alt="Demo of git checkout with fzf" /></p>
 
-<p><a href="https://github.com/junegunn/fzf#installation">Install</a> is easy and there is a
-<code>brew</code> option as well. At time of writing, there is a second step to run an
-install.</p>
+<p>The above image has a list of git branches to checkout on the left hand side.
+The list of branches can be fuzzy filtered. On the right hand side, it shows a
+<code>git log</code> of the selected branch that you can scroll it with the mouse or
+<code>Shift-up</code>/<code>Shift-down</code>.</p>
 
-<p>From there, you are off onto customization:</p>
+<p>Why do this? For fun and profit! For me, <code>git checkout</code>, even with nice tab
+completion, can get a bit cumbersome. Especially for work related branches that
+often have ticket IDs in them.</p>
 
-<ul>
-<li><a href="https://github.com/junegunn/fzf/wiki/Color-schemes">Color schemes</a>.</li>
-<li>Switch from <code>find</code> to <a href="https://github.com/sharkdp/fd">fd</a>.</li>
-<li>Discover <a href="https://github.com/junegunn/fzf/wiki/Related-projects">related projects</a>.</li>
-<li>And down the <a href="https://github.com/junegunn/fzf/wiki/Examples">rabbit hole</a>.</li>
-</ul>
+<p>How? Some simple functions can do it (tested in <code>zsh</code>). Here is the first:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">fzf-git-branch<span class="o">()</span> <span class="o">{</span>
+    git rev-parse HEAD &gt; /dev/null <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="o">||</span> <span class="k">return</span>
 
-<h2 id="default-usage">Default usage</h2>
+    git branch --color<span class="o">=</span>always --all --sort<span class="o">=</span>-committerdate <span class="p">|</span>
+        grep -v HEAD <span class="p">|</span>
+        fzf --height <span class="m">50</span>% --ansi --no-multi --preview-window right:65% <span class="se">\
+</span><span class="se"></span>            --preview <span class="s1">&#39;git log -n 50 --color=always --date=short --pretty=&#34;format:%C(auto)%cd %h%d %s&#34; $(sed &#34;s/.* //&#34; &lt;&lt;&lt; {})&#39;</span> <span class="p">|</span>
+        sed <span class="s2">&#34;s/.* //&#34;</span>
+<span class="o">}</span></code></pre></div>
+<p>Let&rsquo;s break it down! The first line just checks if we are in a git repository,
+if no, bail. The second line is a series of commands piped together. It might
+look like a mess at first, but here it is broken down:</p>
 
-<p>Out of the box, <code>fzf</code> comes with a lot of neat functionality. My <em>absolute
-favorite feature</em> is the <strong>history search</strong>. You hit <code>CTR-r</code> and then you can fuzzy
-find your entire CLI command history. This feature <em>alone</em> is enough for me to
-keep <code>fzf</code> forever! Countless times I have grabbed complex commands from my
-history that I knew were there, if I could just find them. Now I can!</p>
+<ol>
+<li><p>First list all the branches and sort them so most recent is at the bottom of
+the <code>fzf</code> menu. Most likely going to checkout a branch that has been recently edited.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git branch --color<span class="o">=</span>always --all --sort<span class="o">=</span>-committerdate</code></pre></div></li>
 
-<p>If you enabled the <a href="https://github.com/junegunn/fzf#fuzzy-completion-for-bash-and-zsh">completion
-feature</a>, you
-get some other nice goodies as well. For example, you can select a file by doing
-<code>vim **&lt;TAB&gt;</code> and then fuzzy select one or more files to edit. This one isn&rsquo;t
-always useful since some of my projects include a silly number of files. But, it
-is certainly handy when it works out and saves you from having to <code>TAB</code> down a
-directory structure to finally find the file. There are several other
-completions as well, the one for <code>kill</code> is also very nice.</p>
+<li><p>Then filter out any branches branches with <code>HEAD</code> in it. Usually this is
+something like <code>remotes/origin/HEAD -&gt; origin/master</code> which isn&rsquo;t helpful for
+what we are doing.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">grep -v HEAD</code></pre></div></li>
 
-<h2 id="going-beyond">Going beyond</h2>
+<li><p>Then send all the branches to <code>fzf</code>. Use <code>man fzf</code> to see what the parameters
+mean, but it&rsquo;s mostly all for customizing the display. The preview is just running <code>git log</code> on the
+currently selected branch with some formatting and limiting to 50 commits.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">fzf --height <span class="m">50</span>% --ansi --no-multi --preview-window right:65% <span class="se">\
+</span><span class="se"></span>        --preview <span class="s1">&#39;git log -n 50 --color=always --date=short --pretty=&#34;format:%C(auto)%cd %h%d %s&#34; $(sed &#34;s/.* //&#34; &lt;&lt;&lt; {})&#39;</span></code></pre></div></li>
 
-<p>There are many projects that integrate with <code>fzf</code>. Currently playing around with
-<a href="https://github.com/wfxr/forgit">forgit</a> which wraps some <code>git</code> commands with
-<code>fzf</code>. I especially like the file selector commands it has for adding, checking
-out or resetting files.</p>
+<li><p>Lastly, the selected branch from <code>fzf</code> is filtered through <code>sed</code> to remove
+the asterisk and leading whitespace.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sed <span class="s2">&#34;s/.* //&#34;</span></code></pre></div></li>
+</ol>
 
-<p>The <a href="https://github.com/ahmetb/kubectx">kubectx</a> project also integrates with
-<code>fzf</code>. It is especially useful when you alias the commands to something shorter
-like:</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">alias</span> <span class="nv">kc</span><span class="o">=</span><span class="s1">&#39;kubectx&#39;</span>
-<span class="nb">alias</span> <span class="nv">kn</span><span class="o">=</span><span class="s1">&#39;kubens&#39;</span></code></pre></div>
-<p>I&rsquo;m currently exploring if I can work <code>fzf</code> into other parts of my <code>kubectl</code>
-workflow, but haven&rsquo;t nailed it down yet.</p>
+<p>Once you figure out how it all works, you can start to customize it to suite
+your own needs. Maybe you want a different preview, change sorting, no remote
+branches, etc.</p>
 
-<h2 id="conclusion">Conclusion</h2>
+<p>This function by itself isn&rsquo;t <em>that</em> great. All it does is print the branch. For
+example, you can do something like:</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">git checkout -b testing <span class="k">$(</span>fzf-git-branch<span class="k">)</span></code></pre></div>
+<p>Which works, but it&rsquo;s a little wonky. Let&rsquo;s say you don&rsquo;t select a branch
+(forgot to fetch), hitting <code>Esc</code> will cancel the selection, but the git command
+will still run. We can do better.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">fzf-git-checkout<span class="o">()</span> <span class="o">{</span>
+    git rev-parse HEAD &gt; /dev/null <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="o">||</span> <span class="k">return</span>
 
-<p>There is a lot to discover with <code>fzf</code> and it is easy to get overwhelmed by the
-configuration or the fancy commands that you can construct with it. I suggest just
-installing it and using the default functionality first. If it is your cup of
-tea, then go nuts on extending it. I do think the right way to build off of
-<code>fzf</code> is with shell functions or aliases so you can nail down the functionality
-and make it really easy to invoke.</p>
+    <span class="nb">local</span> branch
+
+    <span class="nv">branch</span><span class="o">=</span><span class="k">$(</span>fzf-git-branch<span class="k">)</span>
+    <span class="k">if</span> <span class="o">[[</span> <span class="s2">&#34;</span><span class="nv">$branch</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="nb">echo</span> <span class="s2">&#34;No branch selected.&#34;</span>
+        <span class="k">return</span>
+    <span class="k">fi</span>
+
+    <span class="c1"># If branch name starts with &#39;remotes/&#39; then it is a remote branch. By</span>
+    <span class="c1"># using --track and a remote branch name, it is the same as:</span>
+    <span class="c1"># git checkout -b branchName --track origin/branchName</span>
+    <span class="k">if</span> <span class="o">[[</span> <span class="s2">&#34;</span><span class="nv">$branch</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s1">&#39;remotes/&#39;</span>* <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+        git checkout --track <span class="nv">$branch</span>
+    <span class="k">else</span>
+        git checkout <span class="nv">$branch</span><span class="p">;</span>
+    <span class="k">fi</span>
+<span class="o">}</span></code></pre></div>
+<p>This is a simple wrapper function to our previous one. It lets you select a
+branch and then runs <code>git checkout</code> for you. If you selected a remote branch,
+it&rsquo;ll use the
+<a href="https://git-scm.com/docs/git-checkout#Documentation/git-checkout.txt---track">--track</a>
+option. I like the <code>--track</code> option because it errors out if the branch already
+exists locally. If that&rsquo;s the case, then I would likely want to instead checkout
+the local branch and update it from the remote.</p>
+
+<p>Of course, typing these long function names is a terrible idea, use aliases:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">alias</span> <span class="nv">gb</span><span class="o">=</span><span class="s1">&#39;fzf-git-branch&#39;</span>
+<span class="nb">alias</span> <span class="nv">gco</span><span class="o">=</span><span class="s1">&#39;fzf-git-checkout&#39;</span></code></pre></div>
+<p>That&rsquo;s it! Fun way to checkout branches. I got inspiration for this from the
+<a href="https://github.com/junegunn/fzf/wiki/Examples#git">fzf wiki</a> and this
+<a href="https://gist.github.com/junegunn/8b572b8d4b5eddd8b85e5f4d40f17236">gist</a> from
+the <code>fzf</code> author.</p>
 
         
           <div class="blog-tags">
             
-              <a href="https://polothy.github.io//tags/awesome-cli/">awesome-cli</a>&nbsp;
+              <a href="https://polothy.github.io//tags/fzf/">fzf</a>&nbsp;
             
               <a href="https://polothy.github.io//tags/git/">git</a>&nbsp;
-            
-              <a href="https://polothy.github.io//tags/kubectl/">kubectl</a>&nbsp;
-            
-              <a href="https://polothy.github.io//tags/fzf/">fzf</a>&nbsp;
             
           </div>
         
@@ -347,11 +376,9 @@ and make it really easy to invoke.</p>
           <h4 class="see-also">See also</h4>
           <ul>
           
+            <li><a href="/post/2019-08-10-fzf/">fzf</a></li>
+          
             <li><a href="/post/2019-03-22-diff-so-fancy/">diff-so-fancy</a></li>
-          
-            <li><a href="/post/2019-03-18-bat/">bat</a></li>
-          
-            <li><a href="/post/2019-03-13-kube-prompt/">Kube Prompt</a></li>
           
           </ul>
           
@@ -362,13 +389,9 @@ and make it really easy to invoke.</p>
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://polothy.github.io/post/2019-04-13-testing-gorrilla-mux-handlers/" data-toggle="tooltip" data-placement="top" title="Testing gorilla/mux handlers">&larr; Previous Post</a>
+              <a href="https://polothy.github.io/post/2019-08-10-fzf/" data-toggle="tooltip" data-placement="top" title="fzf">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://polothy.github.io/post/2019-08-19-fzf-git-checkout/" data-toggle="tooltip" data-placement="top" title="Fuzzy git checkout">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

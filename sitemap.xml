@@ -4,19 +4,36 @@
   
   <url>
     <loc>https://polothy.github.io/</loc>
-    <lastmod>2019-08-10T10:52:43-07:00</lastmod>
+    <lastmod>2019-08-19T20:01:43-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>https://polothy.github.io/post/2019-08-19-fzf-git-checkout/</loc>
+    <lastmod>2019-08-19T20:01:43-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://polothy.github.io/post/</loc>
-    <lastmod>2019-08-10T10:52:43-07:00</lastmod>
+    <lastmod>2019-08-19T20:01:43-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://polothy.github.io/tags/</loc>
-    <lastmod>2019-08-10T10:52:43-07:00</lastmod>
+    <lastmod>2019-08-19T20:01:43-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://polothy.github.io/tags/fzf/</loc>
+    <lastmod>2019-08-19T20:01:43-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://polothy.github.io/tags/git/</loc>
+    <lastmod>2019-08-19T20:01:43-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -27,20 +44,8 @@
   </url>
   
   <url>
-    <loc>https://polothy.github.io/tags/fzf/</loc>
-    <lastmod>2019-08-10T10:52:43-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://polothy.github.io/post/2019-08-10-fzf/</loc>
     <lastmod>2019-08-10T10:52:43-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://polothy.github.io/tags/git/</loc>
-    <lastmod>2019-08-10T10:52:43-07:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
