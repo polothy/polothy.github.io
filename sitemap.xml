@@ -5,7 +5,6 @@
   <url>
     <loc>https://polothy.github.io/</loc>
     <lastmod>2019-08-19T20:01:43-07:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -14,33 +13,28 @@
   </url>
   
   <url>
-    <loc>https://polothy.github.io/post/</loc>
-    <lastmod>2019-08-19T20:01:43-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://polothy.github.io/tags/</loc>
-    <lastmod>2019-08-19T20:01:43-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://polothy.github.io/tags/fzf/</loc>
     <lastmod>2019-08-19T20:01:43-07:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://polothy.github.io/tags/git/</loc>
     <lastmod>2019-08-19T20:01:43-07:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://polothy.github.io/post/</loc>
+    <lastmod>2019-08-19T20:01:43-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://polothy.github.io/tags/</loc>
+    <lastmod>2019-08-19T20:01:43-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://polothy.github.io/tags/awesome-cli/</loc>
     <lastmod>2019-08-10T10:52:43-07:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -51,18 +45,16 @@
   <url>
     <loc>https://polothy.github.io/tags/kubectl/</loc>
     <lastmod>2019-08-10T10:52:43-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://polothy.github.io/post/2019-04-13-testing-gorrilla-mux-handlers/</loc>
-    <lastmod>2019-04-13T15:11:52-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://polothy.github.io/tags/go/</loc>
     <lastmod>2019-04-13T15:11:52-07:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://polothy.github.io/post/2019-04-13-testing-gorrilla-mux-handlers/</loc>
+    <lastmod>2019-04-13T15:11:52-07:00</lastmod>
   </url>
   
   <url>
@@ -76,26 +68,23 @@
   </url>
   
   <url>
+    <loc>https://polothy.github.io/tags/emacs/</loc>
+    <lastmod>2019-03-14T19:29:23-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://polothy.github.io/post/2019-03-14-onenote-to-orgmode/</loc>
     <lastmod>2019-03-14T19:29:23-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://polothy.github.io/tags/emacs/</loc>
-    <lastmod>2019-03-14T19:29:23-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://polothy.github.io/tags/orgmode/</loc>
     <lastmod>2019-03-14T19:29:23-07:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://polothy.github.io/tags/spacemacs/</loc>
     <lastmod>2019-03-14T19:29:23-07:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -106,19 +95,16 @@
   <url>
     <loc>https://polothy.github.io/tags/kubernetes/</loc>
     <lastmod>2019-03-13T20:49:08-07:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://polothy.github.io/tags/zsh/</loc>
     <lastmod>2019-03-13T20:49:08-07:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://polothy.github.io/tags/aws/</loc>
     <lastmod>2018-12-17T20:22:44-08:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -129,7 +115,6 @@
   <url>
     <loc>https://polothy.github.io/tags/reinvent/</loc>
     <lastmod>2018-12-17T20:22:44-08:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -138,20 +123,23 @@
   </url>
   
   <url>
+    <loc>https://polothy.github.io/tags/istio/</loc>
+    <lastmod>2018-11-07T20:59:04-08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://polothy.github.io/post/2018-11-07-knative-first-take/</loc>
     <lastmod>2018-11-07T20:59:04-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://polothy.github.io/tags/istio/</loc>
+    <loc>https://polothy.github.io/tags/knative/</loc>
     <lastmod>2018-11-07T20:59:04-08:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://polothy.github.io/tags/knative/</loc>
-    <lastmod>2018-11-07T20:59:04-08:00</lastmod>
-    <priority>0</priority>
+    <loc>https://polothy.github.io/tags/dynamodb/</loc>
+    <lastmod>2018-11-07T14:26:17-08:00</lastmod>
   </url>
   
   <url>
@@ -160,32 +148,23 @@
   </url>
   
   <url>
-    <loc>https://polothy.github.io/tags/dynamodb/</loc>
-    <lastmod>2018-11-07T14:26:17-08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://polothy.github.io/post/2018-10-09-makefile-dotfiles/</loc>
-    <lastmod>2018-10-09T21:15:27-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://polothy.github.io/tags/dotfiles/</loc>
     <lastmod>2018-10-09T21:15:27-07:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://polothy.github.io/tags/homebrew/</loc>
     <lastmod>2018-10-09T21:15:27-07:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://polothy.github.io/tags/makefile/</loc>
     <lastmod>2018-10-09T21:15:27-07:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://polothy.github.io/post/2018-10-09-makefile-dotfiles/</loc>
+    <lastmod>2018-10-09T21:15:27-07:00</lastmod>
   </url>
   
   <url>
@@ -200,7 +179,6 @@
   
   <url>
     <loc>https://polothy.github.io/categories/</loc>
-    <priority>0</priority>
   </url>
   
 </urlset>
