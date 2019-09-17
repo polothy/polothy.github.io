@@ -7,12 +7,18 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Fuzzy git checkout - Blog</title>
-  <meta property="og:title" content="Fuzzy git checkout" />
-  <meta name="twitter:title" content="Fuzzy git checkout" />
-  <meta name="description" content="Using fzf for git checkout.">
-  <meta property="og:description" content="Using fzf for git checkout.">
-  <meta name="twitter:description" content="Using fzf for git checkout.">
+  <title>GitHub Actions - Blog</title>
+  <meta property="og:title" content="GitHub Actions" />
+  <meta name="twitter:title" content="GitHub Actions" />
+  <meta name="description" content="Got accepted in the beta program for GitHub
+Actions. So, naturally, let&rsquo;s create an
+action to publish this blog!">
+  <meta property="og:description" content="Got accepted in the beta program for GitHub
+Actions. So, naturally, let&rsquo;s create an
+action to publish this blog!">
+  <meta name="twitter:description" content="Got accepted in the beta program for GitHub
+Actions. So, naturally, let&rsquo;s create an
+action to publish this blog!">
   <meta name="author" content="Mark Nielsen"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -48,8 +54,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/polothy.github.io\/post\/2019-08-19-fzf-git-checkout\/",
-          "name": "Fuzzy git checkout"
+          "@id": "https:\/\/polothy.github.io\/post\/2019-09-16-github-actions\/",
+          "name": "Git hub actions"
         }
     }]
 }
@@ -60,15 +66,15 @@
   "author": {
     "name" : "Mark Nielsen"
   },
-  "headline": "Fuzzy git checkout",
-  "description" : "Using fzf for git checkout.\n",
+  "headline": "GitHub Actions",
+  "description" : "Got accepted in the beta program for GitHub Actions. So, naturally, let\x26rsquo;s create an action to publish this blog!\n",
   "inLanguage" : "en",
-  "wordCount":  628 ,
-  "datePublished" : "2019-08-19T20:01:43",
-  "dateModified" : "2019-08-19T20:01:43",
+  "wordCount":  478 ,
+  "datePublished" : "2019-09-16T12:39:31",
+  "dateModified" : "2019-09-16T12:39:31",
   "image" : "https:\/\/polothy.github.io\/img\/gopher-spirit-coffee.png",
-  "keywords" : [ "fzf, git" ],
-  "mainEntityOfPage" : "https:\/\/polothy.github.io\/post\/2019-08-19-fzf-git-checkout\/",
+  "keywords" : [ "github" ],
+  "mainEntityOfPage" : "https:\/\/polothy.github.io\/post\/2019-09-16-github-actions\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/polothy.github.io\/",
@@ -82,15 +88,19 @@
 }
 </script>
 
-<meta property="og:title" content="Fuzzy git checkout" />
-<meta property="og:description" content="Using fzf for git checkout.">
+<meta property="og:title" content="GitHub Actions" />
+<meta property="og:description" content="Got accepted in the beta program for GitHub
+Actions. So, naturally, let&rsquo;s create an
+action to publish this blog!">
 <meta property="og:image" content="https://polothy.github.io/img/gopher-spirit-coffee.png" />
-<meta property="og:url" content="https://polothy.github.io/post/2019-08-19-fzf-git-checkout/" />
+<meta property="og:url" content="https://polothy.github.io/post/2019-09-16-github-actions/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Blog" />
 
-  <meta name="twitter:title" content="Fuzzy git checkout" />
-  <meta name="twitter:description" content="Using fzf for git checkout.">
+  <meta name="twitter:title" content="GitHub Actions" />
+  <meta name="twitter:description" content="Got accepted in the beta program for GitHub
+Actions. So, naturally, let&rsquo;s create an
+action to publish this blog!">
   <meta name="twitter:image" content="https://polothy.github.io/img/gopher-spirit-coffee.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@polothy" />
@@ -100,7 +110,7 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@polothy" />
   <meta name="twitter:creator" content="@polothy" />
-  <meta property="og:url" content="https://polothy.github.io/post/2019-08-19-fzf-git-checkout/" />
+  <meta property="og:url" content="https://polothy.github.io/post/2019-09-16-github-actions/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Blog" />
 
@@ -227,7 +237,7 @@
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>Fuzzy git checkout</h1>
+                <h1>GitHub Actions</h1>
               
               
               
@@ -235,7 +245,7 @@
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on August 19, 2019
+  <i class="fas fa-calendar"></i>&nbsp;Posted on September 16, 2019
   
   
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
@@ -264,108 +274,89 @@
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Using <code>fzf</code> for <code>git checkout</code>.</p>
+        <p>Got accepted in the beta program for <a href="https://github.com/features/actions">GitHub
+Actions</a>. So, naturally, let&rsquo;s create an
+action to publish this blog!</p>
 
-<p>First things first, let&rsquo;s see the goods!</p>
+<p>Prior to using Actions, I used a <code>Makefile</code> to publish the blog. It was simple,
+short and easy. So, why bother with using Actions? For fun and profit of course!
+Also, publishing is now just one step: <code>git push origin/master</code>. Winning!</p>
 
-<p><img src="/img/fzf-git-checkout-demo.png" alt="Demo of git checkout with fzf" /></p>
+<p>Often I find that being lazy has led to major productivity boots in my life
+because I <em>absolutely hate to repeat tasks</em>. I learned early on in my career to
+automate early and often to help avoid burnout. Why do something manually (ugh!)
+when I could automate it (yes!)?</p>
 
-<p>The above image has a list of git branches to checkout on the left hand side.
-The list of branches can be fuzzy filtered. On the right hand side, it shows a
-<code>git log</code> of the selected branch that you can scroll it with the mouse or
-<code>Shift-up</code>/<code>Shift-down</code>.</p>
+<p>For scripting the building and publishing of my blog, I used
+<a href="https://github.com/benmatselby/hugo-deploy-gh-pages">benmatselby/hugo-deploy-gh-pages</a>
+as a starting point. If you follow the link, you will notice that the repository
+is a GitHub Action that you can use directly. I didn&rsquo;t use the action because I
+wanted to modify the way it publishes the site and I didn&rsquo;t want to pass it my
+GitHub token.</p>
 
-<p>Why do this? For fun and profit! For me, <code>git checkout</code>, even with nice tab
-completion, can get a bit cumbersome. Especially for work related branches that
-often have ticket IDs in them.</p>
+<p>To use GitHub Actions, just add a <a href="https://help.github.com/en/articles/configuring-a-workflow">workflow
+file</a> to the
+repository. For me, it was <code>.github/workflows/hugo.yml</code> with the following
+contents:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">name<span class="p">:</span><span class="w"> </span>Publish<span class="w"> </span>Blog<span class="w"> </span>with<span class="w"> </span>Hugo<span class="w">
+</span><span class="w"></span>on<span class="p">:</span><span class="w">
+</span><span class="w">  </span>push<span class="p">:</span><span class="w">
+</span><span class="w">    </span>branches<span class="p">:</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>master<span class="w">
+</span><span class="w"></span>jobs<span class="p">:</span><span class="w">
+</span><span class="w">
+</span><span class="w">  </span>build<span class="p">:</span><span class="w">
+</span><span class="w">    </span>name<span class="p">:</span><span class="w"> </span>Build<span class="w">
+</span><span class="w">    </span>runs-on<span class="p">:</span><span class="w"> </span>ubuntu-latest<span class="w">
+</span><span class="w">    </span>steps<span class="p">:</span><span class="w">
+</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>Checkout<span class="w"> </span>master<span class="w">
+</span><span class="w">      </span>uses<span class="p">:</span><span class="w"> </span>actions/checkout@v1<span class="w">
+</span><span class="w">      </span>with<span class="p">:</span><span class="w">
+</span><span class="w">        </span>submodules<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>Build<span class="w"> </span>and<span class="w"> </span>publish<span class="w"> </span>blog<span class="w">
+</span><span class="w">      </span>env<span class="p">:</span><span class="w">
+</span><span class="w">        </span>HUGO_VERSION<span class="p">:</span><span class="w"> </span><span class="m">0.58.2</span><span class="w">
+</span><span class="w">        </span>TOKEN<span class="p">:</span><span class="w"> </span>${{<span class="w"> </span>secrets.TOKEN<span class="w"> </span>}}<span class="w">
+</span><span class="w">      </span>run<span class="p">:</span><span class="w"> </span><span class="sd">|
+</span><span class="sd">        scripts/action.sh</span></code></pre></div>
+<p>The above basically translates to: on push to master, spin up an Ubuntu box,
+checkout <em>this</em> repository with submodules and lastly run my script defined in
+<em>this</em> repository with specific environment variables. Remember, this is <code>beta</code>
+so things will likely change. Syntax documentation can be found
+<a href="https://help.github.com/en/articles/workflow-syntax-for-github-actions">here</a>.</p>
 
-<p>How? Some simple functions can do it (tested in <code>zsh</code>). Here is the first:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">fzf-git-branch<span class="o">()</span> <span class="o">{</span>
-    git rev-parse HEAD &gt; /dev/null <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="o">||</span> <span class="k">return</span>
+<p>The only thing left to do before pushing to <code>master</code> is to setup the secret. In
+your GitHub account, go to Profile Settings | Developer Settings | Personal
+access tokens | Generate new token. Give the token <code>public_repo</code> access. Copy
+the token after it is created. Go to the repository with the action, Settings |
+Secrets. Add a new secret, name it <code>TOKEN</code> and paste in the generated token from
+earlier. Now trigger the action with a good old <code>git push origin/master</code>.</p>
 
-    git branch --color<span class="o">=</span>always --all --sort<span class="o">=</span>-committerdate <span class="p">|</span>
-        grep -v HEAD <span class="p">|</span>
-        fzf --height <span class="m">50</span>% --ansi --no-multi --preview-window right:65% <span class="se">\
-</span><span class="se"></span>            --preview <span class="s1">&#39;git log -n 50 --color=always --date=short --pretty=&#34;format:%C(auto)%cd %h%d %s&#34; $(sed &#34;s/.* //&#34; &lt;&lt;&lt; {})&#39;</span> <span class="p">|</span>
-        sed <span class="s2">&#34;s/.* //&#34;</span>
-<span class="o">}</span></code></pre></div>
-<p>Let&rsquo;s break it down! The first line just checks if we are in a git repository,
-if no, bail. The second line is a series of commands piped together. It might
-look like a mess at first, but here it is broken down:</p>
+<p>That&rsquo;s it! Visit the repository&rsquo;s Actions tab to watch the workflow execute. So
+far, I&rsquo;m liking the syntax. The steps with the <code>uses:</code> are a particularly
+interesting extension model. This actually grabs the action from a repository.
+For example, <code>actions/checkout@v1</code> can be found
+<a href="https://github.com/actions/checkout">here</a> and it has various settings you can
+pass to the action.</p>
 
-<ol>
-<li><p>First list all the branches and sort them so most recent is at the bottom of
-the <code>fzf</code> menu. Most likely going to checkout a branch that has been recently edited.</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git branch --color<span class="o">=</span>always --all --sort<span class="o">=</span>-committerdate</code></pre></div></li>
+<p>This is all new to me, but not entirely sure how comfortable I would be using
+non-standard actions due to security and stability concerns. More research is
+required, but I certainly <em>love</em> the idea of using this model for my own
+actions. I&rsquo;d like to see what it is like to wrap my current deployment script
+into an action repository.</p>
 
-<li><p>Then filter out any branches branches with <code>HEAD</code> in it. Usually this is
-something like <code>remotes/origin/HEAD -&gt; origin/master</code> which isn&rsquo;t helpful for
-what we are doing.</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">grep -v HEAD</code></pre></div></li>
+<h2 id="conclusion">Conclusion</h2>
 
-<li><p>Then send all the branches to <code>fzf</code>. Use <code>man fzf</code> to see what the parameters
-mean, but it&rsquo;s mostly all for customizing the display. The preview is just running <code>git log</code> on the
-currently selected branch with some formatting and limiting to 50 commits.</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">fzf --height <span class="m">50</span>% --ansi --no-multi --preview-window right:65% <span class="se">\
-</span><span class="se"></span>        --preview <span class="s1">&#39;git log -n 50 --color=always --date=short --pretty=&#34;format:%C(auto)%cd %h%d %s&#34; $(sed &#34;s/.* //&#34; &lt;&lt;&lt; {})&#39;</span></code></pre></div></li>
-
-<li><p>Lastly, the selected branch from <code>fzf</code> is filtered through <code>sed</code> to remove
-the asterisk and leading whitespace.</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sed <span class="s2">&#34;s/.* //&#34;</span></code></pre></div></li>
-</ol>
-
-<p>Once you figure out how it all works, you can start to customize it to suite
-your own needs. Maybe you want a different preview, change sorting, no remote
-branches, etc.</p>
-
-<p>This function by itself isn&rsquo;t <em>that</em> great. All it does is print the branch. For
-example, you can do something like:</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">git checkout -b testing <span class="k">$(</span>fzf-git-branch<span class="k">)</span></code></pre></div>
-<p>Which works, but it&rsquo;s a little wonky. Let&rsquo;s say you don&rsquo;t select a branch
-(forgot to fetch), hitting <code>Esc</code> will cancel the selection, but the git command
-will still run. We can do better.</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">fzf-git-checkout<span class="o">()</span> <span class="o">{</span>
-    git rev-parse HEAD &gt; /dev/null <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="o">||</span> <span class="k">return</span>
-
-    <span class="nb">local</span> branch
-
-    <span class="nv">branch</span><span class="o">=</span><span class="k">$(</span>fzf-git-branch<span class="k">)</span>
-    <span class="k">if</span> <span class="o">[[</span> <span class="s2">&#34;</span><span class="nv">$branch</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-        <span class="nb">echo</span> <span class="s2">&#34;No branch selected.&#34;</span>
-        <span class="k">return</span>
-    <span class="k">fi</span>
-
-    <span class="c1"># If branch name starts with &#39;remotes/&#39; then it is a remote branch. By</span>
-    <span class="c1"># using --track and a remote branch name, it is the same as:</span>
-    <span class="c1"># git checkout -b branchName --track origin/branchName</span>
-    <span class="k">if</span> <span class="o">[[</span> <span class="s2">&#34;</span><span class="nv">$branch</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s1">&#39;remotes/&#39;</span>* <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-        git checkout --track <span class="nv">$branch</span>
-    <span class="k">else</span>
-        git checkout <span class="nv">$branch</span><span class="p">;</span>
-    <span class="k">fi</span>
-<span class="o">}</span></code></pre></div>
-<p>This is a simple wrapper function to our previous one. It lets you select a
-branch and then runs <code>git checkout</code> for you. If you selected a remote branch,
-it&rsquo;ll use the
-<a href="https://git-scm.com/docs/git-checkout#Documentation/git-checkout.txt---track">--track</a>
-option. I like the <code>--track</code> option because it errors out if the branch already
-exists locally. If that&rsquo;s the case, then I would likely want to instead checkout
-the local branch and update it from the remote.</p>
-
-<p>Of course, typing these long function names is a terrible idea, use aliases:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">alias</span> <span class="nv">gb</span><span class="o">=</span><span class="s1">&#39;fzf-git-branch&#39;</span>
-<span class="nb">alias</span> <span class="nv">gco</span><span class="o">=</span><span class="s1">&#39;fzf-git-checkout&#39;</span></code></pre></div>
-<p>That&rsquo;s it! Fun way to checkout branches. I got inspiration for this from the
-<a href="https://github.com/junegunn/fzf/wiki/Examples#git">fzf wiki</a> and this
-<a href="https://gist.github.com/junegunn/8b572b8d4b5eddd8b85e5f4d40f17236">gist</a> from
-the <code>fzf</code> author.</p>
+<p>Very easy to get started with GitHub actions. I actually got it working while
+waiting for a flight at the airport. Looking forward to writing my own actions
+and exploring the rest of the features available to GitHub Actions.</p>
 
         
           <div class="blog-tags">
             
-              <a href="https://polothy.github.io//tags/fzf/">fzf</a>&nbsp;
-            
-              <a href="https://polothy.github.io//tags/git/">git</a>&nbsp;
+              <a href="https://polothy.github.io//tags/github/">github</a>&nbsp;
             
           </div>
         
@@ -375,15 +366,6 @@ the <code>fzf</code> author.</p>
         
           
           
-          <h4 class="see-also">See also</h4>
-          <ul>
-          
-            <li><a href="/post/2019-08-10-fzf/">fzf</a></li>
-          
-            <li><a href="/post/2019-03-22-diff-so-fancy/">diff-so-fancy</a></li>
-          
-          </ul>
-          
         
       </article>
 
@@ -391,13 +373,9 @@ the <code>fzf</code> author.</p>
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://polothy.github.io/post/2019-08-10-fzf/" data-toggle="tooltip" data-placement="top" title="fzf">&larr; Previous Post</a>
+              <a href="https://polothy.github.io/post/2019-08-19-fzf-git-checkout/" data-toggle="tooltip" data-placement="top" title="Fuzzy git checkout">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://polothy.github.io/post/2019-09-16-github-actions/" data-toggle="tooltip" data-placement="top" title="GitHub Actions">Next Post &rarr;</a>
-            </li>
           
         </ul>
       
